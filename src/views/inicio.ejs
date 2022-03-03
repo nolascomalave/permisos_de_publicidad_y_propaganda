@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+
+	<!-- Archivos CSS -->
+	<link rel="stylesheet" type="text/css" href="/fontawesome/styles/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/CSS/inicio/inicio.css">
+
+
+	<!-- Ícono del Sitio Web -->
+	<link rel="icon" type="image/gif" href="/IMG/logoIco.png">
+
+	<!-- Archivos JavaScript -->
+	<script type="text/javascript" src="/JS/JQuery/jquery.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="/JS/authentication/inicio.js"></script>
+
+	<title>Sistema de Gestión de Permisos Especiales</title>
+</head>
+<body>
+	<section id="body">
+		<div class="card mb-3" style="max-width: 540px;">
+			<div class="contenedor" title="Ir al Destino">
+				<a href="/venta_de_bebidas">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<i class="li-icon fas fa-wine-glass-alt"></i>
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">Venta de Bebidas Alcohólicas</h5>
+								<p class="card-text">Gestione los permisos municipales para la venta de bebidas alcohólicas a través del módulo correspondiente para éste tipo de permisos.</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="card mb-3" style="max-width: 540px;">
+			<div class="contenedor" title="Ir al Destino">
+				<a href="/eventos_especiales">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<i class="li-icon fas fa-calendar-day"></i>
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">Eventos Especiales</h5>
+								<p class="card-text">Emita los permisos municipales para la venta de bebidas alcohólicas a través del módulo correspondiente para éste tipo de permisos.</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="card mb-3" style="max-width: 540px;">
+			<div class="contenedor" title="Ir al Destino">
+				<a href="/publicidad_y_propaganda">
+					<div class="row g-0">
+						<div class="col-md-4">
+							<i class="li-icon fas fa-map-marked-alt"></i>
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">Publicidad y Propaganda</h5>
+								<p class="card-text">Realice un seguimiento a los permisos de Publicidad y Propaganda emitidos o, por emitir, a traves del módulo destinado para realizar dichas funciones.</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<header id="header">
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="/"><i class="li-icon fas fa-home"></i> Inicio</a>
+			</li>
+
+			<li class="nav-item backg-white">
+				<a class="nav-link" href="/venta_de_bebidas/"><i class="li-icon fas fa-wine-glass-alt"></i>  Venta de Bebidas Alcohólicas</a>
+			</li>
+
+			<li class="nav-item backg-white">
+				<a class="nav-link" href="/eventos_especiales/"><i class="li-icon fas fa-calendar-day"></i>  Eventos Especiales</a>
+			</li>
+
+			<li class="nav-item backg-white">
+				<a class="nav-link" href="/publicidad_y_propaganda/"><i class="li-icon fas fa-map-marked-alt"></i>  Publicidad y Propaganda</a>
+			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Opciones</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="/usuarios"><i class="li-icon fas fa-user-cog"></i> Usuarios</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="/password"><i class="li-icon fas fa-lock"></i> Cambio de Contraseña</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><button class="dropdown-item" id="closeSession"><i class="li-icon fas fa-sign-out-alt"></i> Cerrar Sesión</button></li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+
+	<div id="message-section"></div>
+
+	<noscript class="allScreen">
+		<p>¡Para acceder a esta aplicación web debe mantener JavaScript activado en su navegador!</p>
+		Consulte con la Dirección de Tecnología y Sistemas para que los analistas activen JavaScript en su navegador.
+	</noscript>
+</body>
+</html>

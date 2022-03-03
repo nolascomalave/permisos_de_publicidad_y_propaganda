@@ -1,0 +1,86 @@
+<%- include("templates/header", {titlePage, titleResources}) %>
+	
+	<% if('errno' in permisos){ %>
+		<div class="notResult">
+			<p>¡No se ha podido establecer conexión con la base de datos!</p>
+			<span>Informe de este problema a la Dirección de Tecnología y Sistemas este problema para que sea solucionado.</span>
+		</div>
+	<% }else{ %>
+		<section id="section">
+			<header>
+				<form id="buscador" method="POST" class="centerFlex">
+					<div class="div">
+						<span>Estado del Permiso:</span>
+						<select id="statusPermit">
+							<option value="Todos">Todos</option>
+							<option value="Emitido">Emitido</option>
+							<option value="No Emitido">No Emitido</option>
+						</select>
+					</div>
+					<div class="div">
+						<span>Buscar:</span>
+						<input type="text" id="searcher" maxlength="100" placeholder="Buscar">
+					</div>
+					<button id="cleanerSearch" type="button" title="Limpiar Búsqueda">
+						<i class="li-icon fas fa-backspace"></i>
+					</button>
+					<% if(titleResources=='eventos'){ %>
+						<a href="/eventos_especiales/reporte/" target="_blank">
+					<% }else if(titleResources=='bebidas'){ %>
+						<a href="/venta_de_bebidas/reporte/" target="_blank">
+					<% }else{ %>
+						<a href="/publicidad_y_propaganda/reporte/" target="_blank">
+					<% } %>
+						<div id="printSearcher" type="button" title="Imprimir reporte de permisos" class="centerFlex">
+							<i class="li-icon fas fa-print"></i>
+						</div>
+					</a>
+				</form>
+			</header>
+
+			<section id="itemsSection">
+				<% if(permisos.length<1){ %>
+					<button id="addFirst" class="notFound-add" title="Generar Permiso">
+						<i class="li-icon fas fa-plus"></i>
+						<p>Click para generar Permiso</p>
+					</button>
+				<% }else{ %>
+					<% count=permisos.length-1; %>
+					<% permisos.forEach((permiso)=>{ %>
+						<% if(permisos[count].emitido==0){ %>
+							<button class="item disaproved" id="item<%- permisos[count].id %>">
+						<% }else{ %>
+							<% if(permisos[count].cancelado==0){ %>
+								<button class="item aproved" id="item<%- permisos[count].id %>">
+							<% }else{ %>
+								<button class="item canceled" id="item<%- permisos[count].id %>">
+							<% } %>	
+						<% } %>
+							<div class="codeItem">
+								<b>Cod:</b> <%- permisos[count].codigo_permiso %>
+							</div>
+							<div class="title-item truncado">
+								<b>Requisitor:</b> <%- permisos[count].requisitor_nombre+' '+permisos[count].requisitor_apellido %>
+							</div>
+							<div class="data-item">
+								<div><b>Emisión:</b> <%- gf.getFormatedDate(permisos[count].habilitacion) %></div>
+								<div><b>Vencimiento:</b> <%- gf.getFormatedDate(permisos[count].vencimiento) %></div>
+							</div>
+						</button>
+						<% count--; %>
+					<% }); %>
+				<% } %>
+			</section>
+			<section id="searchSection">
+				<header>
+				</header>
+				<blockquote></blockquote>
+			</section>
+		</section>
+	<% } %>
+
+	<button id="add" title="Crear Permiso">
+		<i class="li-icon fas fa-plus"></i>
+	</button>
+
+<%- include("templates/footer", { form: titleResources }) %>

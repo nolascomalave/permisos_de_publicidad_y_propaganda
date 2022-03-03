@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+
+	<!-- Archivos CSS -->
+	<link rel="stylesheet" type="text/css" href="/fontawesome/styles/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/CSS/globalUsers.css">
+
+	<!-- Ícono del Sitio Web -->
+	<link rel="icon" type="image/gif" href="/IMG/logoIco.png">
+
+	<!-- Archivos JavaScript -->
+	<script type="text/javascript" src="/JS/JQuery/jquery.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="/JS/globalUsers.js"></script>
+
+	<% if(typeform=='edit'){ %>
+		<title>SGPE - Editar Usuario</title>
+	<% } else{ %>
+		<title>SGPE - Registrar Usuario</title>
+	<% } %>
+</head>
+<body>
+
+	<header id="header">
+		<div id="title-page">
+			<span><i class="li-icon fas fa-users-cog"></i> Usuarios</span>
+		</div>
+		<div id="global-links">
+			<% if(typeform=='edit'){ %>
+				<a href="../../password">
+			<% } else {%>
+				<a href="../password">
+			<% } %>
+				<button title="Administrar Contraseña">
+					<i class="li-icon fas fa-lock"></i>
+				</button>
+			</a>
+			<a href="/usuarios" title="Usuarios">
+				<button>
+					<i class="li-icon fas fa-user-cog"></i>
+				</button>
+			</a>
+			<a href="../">
+				<button title="Inicio">
+					<i class="li-icon fas fa-home"></i>
+				</button>
+			</a>
+			<a href="../ayuda">
+				<button title="Ayuda">
+					<i class="li-icon fas fa-question-circle"></i>
+				</button>
+			</a>
+			<button id="closeSession" title="Cerrar Sesión">
+				<i class="li-icon fas fa-sign-out-alt"></i>
+			</button>
+			<span class="cleaner"></span>
+		</div>
+	</header>
+
+	<section id="section">
+		<% if(typeform=='edit'){ %>
+			<form id="newUserForm" method="post" action="/usuarios/<%- typeform+'/'+values.username%>">
+		<% } else{ %>
+			<form id="newUserForm" method="post" action="/usuarios/add">
+		<% } %>
+			<header>
+				<% if(typeform=='edit'){ %>
+					<i class="li-icon fas fa-edit"></i> Editar Usuario (<%- values.username.toUpperCase()%>)
+				<% } else {%>
+					<i class="li-icon fas fa-plus"></i> Nuevo Usuario
+				<% } %>
+			</header>
+			<section>
+				<label for="nombre">Nombre: <span class="obligatory">*</span></label>
+				<input type="text" name="nombre" placeholder="Nombre"
+					<% if((typeof values)!=undefined && (typeof values)!='undefined'){ %>
+						value="<%- values.nombre%>"
+					<% } %>
+				>
+				<p id="nombreError" class="error">
+					<% if((typeof errors)!=undefined && (typeof errors)!='undefined'){ %>
+						<% if('nombre' in errors){ %>
+							<%- errors.nombre %>
+						<% } %>
+					<% } %>
+				</p>
+
+				<label for="apellido">Apellido: <span class="obligatory">*</span></label>
+				<input type="text" name="apellido" placeholder="Apellido"
+					<% if((typeof values)!=undefined && (typeof values)!='undefined'){ %>
+						value="<%- values.apellido%>"
+					<% } %>
+				>
+				<p id="apellidoError" class="error">
+					<% if((typeof errors)!=undefined && (typeof errors)!='undefined'){ %>
+						<% if('apellido' in errors){ %>
+							<%- errors.apellido %>
+						<% } %>
+					<% } %>
+				</p>
+
+				<label for="cedula">Cédula: <span class="obligatory">*</span></label>
+				<input type="text" name="cedula" placeholder="Cédula o Pasaporte"
+					<% if((typeof values)!=undefined && (typeof values)!='undefined'){ %>
+						value="<%- gf.puntoDigito(values.cedula)%>"
+					<% } %>
+				>
+				<p id="cedulaError" class="error">
+					<% if((typeof errors)!=undefined && (typeof errors)!='undefined'){ %>
+						<% if('cedula' in errors){ %>
+							<%- errors.cedula %>
+						<% } %>
+					<% } %>
+				</p>
+
+				<label for="cargo">Cargo: <span class="obligatory">*</span></label>
+				<input type="text" name="cargo" placeholder="Cargo"
+					<% if((typeof values)!=undefined && (typeof values)!='undefined'){ %>
+						value="<%- values.cargo%>"
+					<% } %>
+				>
+				<p id="cargoError" class="error">
+					<% if((typeof errors)!=undefined && (typeof errors)!='undefined'){ %>
+						<% if('cargo' in errors){ %>
+							<%- errors.cargo %>
+						<% } %>
+					<% } %>
+				</p>
+
+				<label for="typeUser">Tipo de Usuario: <span class="obligatory">*</span></label>
+				<select name="typeUser"
+					<% if((typeof values)!=undefined && (typeof values)!='undefined'){ %>
+						value="<%- values.typeUser%>"
+					<% } %>
+				>
+					<option value="Analista">Analista</option>
+					<option value="Administrador">Administrador</option>
+					<option value="Desarrollador">Desarrollador</option>
+				</select>
+				<p id="typeUserError" class="error"></p>
+
+				<center>
+					<% if (typeform=='edit') { -%>
+						<button type="submit" name="username" value="<%- values.username%>">Registrar</button>
+					<% } else { -%>
+						<button type="submit">Registrar</button>
+					<% } -%>					
+				</center>
+			</section>
+		</form>
+	</section>
+
+	<div id="message-section">
+		<% if((typeof err)!=undefined && (typeof err)!='undefined'){ %>
+			<div class="message" id="messageError">
+				<div>
+					<p>message</p>
+					<button class="accept">Aceptar</button>
+					<span class="cleaner"></span>
+				</div>
+			</div>
+		<% } %>
+	</div>
+
+	<div id="charger">
+		<div class="charger charger-one">
+			<div class="charger charger-two">
+				<div class="charger-img">
+					<img src="/img/logoIco.png">
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

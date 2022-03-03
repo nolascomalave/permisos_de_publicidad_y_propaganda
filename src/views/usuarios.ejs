@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+
+	<!-- Archivos CSS -->
+	<link rel="stylesheet" type="text/css" href="/fontawesome/styles/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/CSS/globalUsers.css">
+
+	<!-- Ícono del Sitio Web -->
+	<link rel="icon" type="image/gif" href="/IMG/logoIco.png">
+
+	<!-- Archivos JavaScript -->
+	<script type="text/javascript" src="/JS/JQuery/jquery.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="/JS/globalUsers.js"></script>
+
+	<title>SGPE - Usuarios</title>
+</head>
+<body>
+
+	<header id="header">
+		<div id="title-page">
+			<span><i class="li-icon fas fa-users-cog"></i> SGPE - Usuarios</span>
+		</div>
+		<div id="global-links">
+			<a href="../password">
+				<button title="Administrar Contraseña">
+					<i class="li-icon fas fa-lock"></i>
+				</button>
+			</a>
+			<a href="/usuarios" title="Usuarios">
+				<button>
+					<i class="li-icon fas fa-user-cog"></i>
+				</button>
+			</a>
+			<a href="../">
+				<button title="Inicio">
+					<i class="li-icon fas fa-home"></i>
+				</button>
+			</a>
+			<a href="../ayuda">
+				<button title="Ayuda">
+					<i class="li-icon fas fa-question-circle"></i>
+				</button>
+			</a>
+			<button id="closeSession" title="Cerrar Sesión">
+				<i class="li-icon fas fa-sign-out-alt"></i>
+			</button>
+			<span class="cleaner"></span>
+		</div>
+	</header>
+
+	<section>
+		<% if('errno' in resultado){ %>
+			<div class="notResult">
+				<p>¡No se ha podido establecer conexión con la base de datos!</p>
+				<span>Informe de este problema a la Dirección de Tecnología y Sistemas este problema para que sea solucionado.</span>
+			</div>
+		<% }else{ %>
+			<% let exist=false; %>
+			<% if(resultado.length>0){ %>
+				<% resultado.forEach((result)=>{ %>
+					<% if(result.tipo_usuario!='Desarrollador'){ %>
+						<% exist=true; %>
+						<% if(result.tipo_usuario=='Administrador'){ %>
+							<div id="<%- result.idDocument %>" class="card text-white mb-3 user-card user-card-dark" style="max-width: 18rem;">
+						<% }else{ %>
+							<div id="<%- result.idDocument %>" class="card text-dark bg-light mb-3 user-card user-card-light" style="max-width: 18rem;">
+						<% } %>
+
+							<div class="card-header"><%- result.tipo_usuario %></div>
+							<div class="card-body">
+								<h5 class="card-title"><span style="text-decoration: underline;"><%- result.username %></span>: <%- result.nombre+' '+result.apellido %></h5>
+								<p class="card-text">
+									<span>Cédula</span>: <%- gf.puntoDigito(result.idDocument) %>
+									<br>
+									<span>Cargo</span>: <%- result.cargo %>
+								</p>
+							</div>
+
+							<% if(usuario.indicador != result.username){ %>
+								<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+									<div class="btn-group" role="group">
+										<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+										  Opciones
+										</button>
+										<ul class="dropdown-menu">
+										  <li><a class="dropdown-item" href="/usuarios/edit/<%- result.username %>">Editar</a></li>
+										  <li><button id="<%- result.username %>" class="delete dropdown-item">Eliminar</button></li>
+										</ul>
+									</div>
+								</div>
+							<% } %>
+
+						</div>
+					<% } %>
+				<% }); %>
+				<% if(exist==false){ %>
+					<div id="addFirst" class="notFound-add" title="Generar Permiso">
+						<a href="/usuarios/add">
+							<div>
+								<i class="li-icon fas fa-plus"></i>
+								<p>Click para generar Permiso</p>
+							</div>
+						</a>
+					</div>
+				<% } %>
+			<% }else if(resultado.length>0 || exist==false){ %>
+				<div id="addFirst" class="notFound-add" title="Generar Permiso">
+					<a href="/usuarios/add">
+						<div>
+							<i class="li-icon fas fa-plus"></i>
+							<p>Click para registrar usuario</p>
+						</div>
+					</a>
+				</div>
+			<% } %>
+		<% } %>
+	</section>
+
+	<div id="add" title="Agregar Usuario">
+		<a href="/usuarios/add">
+			<div class="centerFlex">
+				<i class="li-icon fas fa-plus"></i>
+			</div>
+		</a>
+	</div>
+
+	<div id="message-section"></div>
+
+	<div id="errorsSection"></div>
+
+	<div id="charger">
+		<div class="charger charger-one">
+			<div class="charger charger-two">
+				<div class="charger-img">
+					<img src="/img/logoIco.png">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<noscript class="allScreen">
+		<p>¡Para acceder a esta aplicación web debe mantener JavaScript activado en su navegador!</p>
+		Consulte con la Dirección de Tecnología y Sistemas para que los analistas activen JavaScript en su navegador.
+	</noscript>
+
+</body>
+</html>

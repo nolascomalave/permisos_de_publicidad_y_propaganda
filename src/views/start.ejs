@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+
+	<!-- Archivos CSS -->
+	<link rel="stylesheet" type="text/css" href="/fontawesome/styles/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/CSS/globalSessions.css">
+
+	<!-- Ícono del Sitio Web -->
+	<link rel="icon" type="image/gif" href="/IMG/logoIco.png">
+
+	<!-- Archivos JavaScript -->
+	<script type="text/javascript" src="/JS/JQuery/jquery.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="/JS/authentication/start.js"></script>
+
+	<title>Sistema de Gestión de Permisos Especiales</title>
+</head>
+<body>
+	<div id="body">
+		<header id="header">
+			Sistema de Gestión de Permisos Especiales
+		</header>
+		<form id="start-form">
+			<header>
+				<center>
+					<img src="/IMG/logo.png">
+					<p>Iniciar Sesión</p>
+					<%- gf.puntoDigito('123456789') %>
+				</center>
+			</header>
+			<section>
+				<label>Nombre de Usuario:</label>
+				<input type="text" id="username" placeholder="Nombre de Usuario" maxlength="51" minlength="3" required>
+				<p class="error" id="usernameError"></p>
+
+				<label>Contraseña:</label>
+				<input type="password" id="password" placeholder="Contraseña" maxlength="30" minlength="6" required>
+				<p class="error" id="passwordError"></p>
+
+				<center>
+					<button type="submit">Iniciar</button>
+				</center>
+			</section>
+		</form>
+
+		<footer>
+			<p>Dirección de Asuntos Públicos.</p>
+			<p style="text-align: right;">Desarrollado por la Dirección de Tecnología y Sistemas.</p>
+		</footer>
+	</div>
+
+	<div id="message-section"></div>
+
+	<noscript class="allScreen">
+		<p>¡Para acceder a esta aplicación web debe mantener JavaScript activado en su navegador!</p>
+		Consulte con la Dirección de Tecnología y Sistemas para que los analistas activen JavaScript en su navegador.
+	</noscript>
+</body>
+</html>

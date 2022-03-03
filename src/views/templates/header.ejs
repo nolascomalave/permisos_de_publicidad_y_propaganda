@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<!-- Archivos CSS -->
+	<link rel="stylesheet" type="text/css" href="/fontawesome/styles/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/CSS/global.css">
+	<link rel="stylesheet" type="text/css" href="/CSS/<%= titleResources %>.css">
+
+	<!-- Ícono del Sitio Web -->
+	<link rel="icon" type="image/gif" href="/IMG/logoIco.png">
+
+	<!-- Archivos JavaScript -->
+	<script type="text/javascript" src="/JS/JQuery/jquery.js"></script>
+	<script type="text/javascript" src="/socket.io/socket.io.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/JS/global.js"></script>
+	<script type="text/javascript" src="/JS/<%= titleResources %>.js"></script>
+
+	<title>Permisos - <%= titlePage %></title>
+</head>
+<body>
+
+	<aside id="aside">
+			<div class="centerFlex">
+				<a href="/venta_de_bebidas">
+					<div>
+						<i class="li-icon fas fa-wine-glass-alt"></i>
+						<p>Bebidas Alcohólicas</p>
+					</div>
+				</a>
+			</div>
+			<div class="centerFlex">
+				<a href="/eventos_especiales">
+					<div>
+						<i class="li-icon fas fa-calendar-day"></i>
+						<p>Eventos Especiales</p>
+					</div>
+				</a>
+			</div>
+			<div class="centerFlex">
+				<a href="/publicidad_y_propaganda">
+					<div>
+						<i class="li-icon fas fa-map-marked-alt"></i>
+						<p>Publicidad y Propaganda</p>
+					</div>
+				</a>
+			</div>
+	</aside>
+
+	<section id="section-continer">
+		<header id="cabecera">
+			<div id="title-page">
+				<% if(titlePage=='Publicidad y Propaganda'){%>
+					<i class="li-icon fas fa-calendar-day"></i> 
+				<% } else if(titlePage=='Venta de Bebidas Alcohólicas'){%>
+					<i class="li-icon fas fa-wine-glass-alt"></i>
+				<% } else if(titlePage=='Eventos Especiales'){%>
+					<i class="li-icon fas fa-map-marked-alt"></i>
+				<% } %>
+				<!--<img src="img/logo.png">-->
+				<pre> </pre><span><%= titlePage %></span>
+			</div>
+			<div id="global-links">
+				<button id="closeSession" title="Cerrar Sesión">
+					<i class="li-icon fas fa-sign-out-alt"></i>
+				</button>
+				<a href="../ayuda">
+					<button title="Ayuda">
+						<i class="li-icon fas fa-question-circle"></i>
+					</button>
+				</a>
+				<a href="../">
+					<button title="Inicio">
+						<i class="li-icon fas fa-home"></i>
+					</button>
+				</a>
+				<% if(tipo_usuario=='Administrador' || tipo_usuario=='Desarrollador'){ %>
+					<a href="../usuarios" title="Usuarios">
+						<button>
+							<i class="li-icon fas fa-user-cog"></i>
+						</button>
+					</a>
+				<% } %>
+				<a href="../password">
+					<button title="Administrar Contraseña">
+						<i class="li-icon fas fa-lock"></i>
+					</button>
+				</a>
+				<span class="cleaner"></span>
+			</div>
+		</header>
+	

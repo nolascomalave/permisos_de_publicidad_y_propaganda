@@ -1,0 +1,212 @@
+				<header>
+					<p>Nuevo Permiso</p>
+					<button>
+						<img src="/IMG/close.png">
+					</button>
+				</header>
+				<section>
+					<form id="itemForm" enctype="multipart/form-data">
+						<div class="input-date-continer">
+							<label for="habilitacion">Fecha de Habilitación: <span class="obligatory">*</span></label>
+							<input type="date" id="habilitacion" required>
+							<p class="error" id="habilitacionError"></p>
+						</div>
+
+						<div class="input-date-continer">
+							<label for="vencimiento">Fecha de Vencimiento: <span class="obligatory">*</span></label>
+							<input type="date" id="vencimiento" required>
+							<p class="error" id="vencimientoError"></p>
+						</div>
+
+						<div>
+							<% let hours=gf.hoursDay(), horas=[]; %>
+							<label>Horario: <span class="obligatory">*</span></label>
+							<br>
+							<select id="horarioInicio" required>
+								<% hours.forEach((hour)=>{ %>
+									<option value="<%- hour %>"><%- hour %></option>
+									<% horas.push(hour); %>
+								<% }); %>
+							</select>
+							<span>-</span>
+							<select id="horarioFin" required>
+								<% horas.forEach((hora)=>{ %>
+									<option value="<%- hora %>"><%- hora %></option>
+								<% }); %>
+							</select>
+							<p class="error" id="horarioError"></p>
+						</div>
+
+						<div class="checkbox" id="dat-firma-content">
+							<label>
+								<input type="checkbox" id="dat-firma"> <p>Necesita firma de la DAT</p>
+								<span class="checkmark"></span>
+							</label>
+						</div>
+
+						<span class="cleaner"></span>
+
+						<fieldset >
+							<legend>Datos del Requisitor:</legend>
+							<div>
+								<label for="requisitorNombre">Nombre: <span class="obligatory">*</span></label>
+								<input type="text" id="requisitorNombre" required placeholder="Nombre" maxlength="50" minlength="2">
+								<p class="error" id="requisitorNombreError"></p>
+							</div>
+							<div class="margin-left-input">
+								<label for="requisitorApellido">Apellido:</label>
+								<input type="text" id="requisitorApellido" placeholder="Apellido" maxlength="50" minlength="2">
+								<p class="error" id="requisitorApellidoError"></p>
+							</div>
+							<div class="margin-left-input">
+								<label for="requisitorDoc">C.I. o Rif: <span class="obligatory">*</span></label>
+								<input type="text" id="requisitorDoc" required placeholder="C.I: o Rif" maxlength="12" minlength="10">
+								<p class="error" id="requisitorDocError"></p>
+							</div>
+							<div>
+								<label for="tlfRequisitor">Teléfono: <span class="obligatory">*</span></label>
+								<input type="text" id="tlfRequisitor" required placeholder="Teléfono"  maxlength="15" minlength="11">
+								<p class="error" id="tlfRequisitorError"></p>
+							</div>
+							<div class="textarea">
+								<label for="habitacionRequisitor">Dirección de Habitación: <span class="obligatory">*</span></label>
+								<textarea id="habitacionRequisitor" required placeholder="Dirección" maxlength="1000" minlength="5"></textarea>
+								<p class="error" id="habitacionRequisitorError"></p>
+							</div>
+						</fieldset>
+
+						<div class="textarea">
+							<label for="sector">Sector y Área Permisada: <span class="obligatory">*</span></label>
+							<textarea id="sector" required placeholder="Sector y Área" maxlength="1000" minlength="5"></textarea>
+							<p class="error" id="sectorError"></p>
+						</div>
+
+						<!-- <fieldset>
+							<legend>Tipo de Publicidad: <span class="obligatory">*</span></legend>
+							<div class="check selectAll">
+								<label>
+									<input type="checkbox" id="selectAllPublicidad">
+									<p>Seleccionar Todos:</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<div class="check">
+								<label>
+									<input type="checkbox" id="publicidadVolantes">
+									<p>Volantes</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							
+							<div class="check">
+								<label>
+									<input type="checkbox" id="publicidadAfiches">
+									<p>Afiches</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<div class="check">
+								<label>
+									<input type="checkbox" id="publicidadPendones">
+									<p>Pendones</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<div class="check">
+								<label>
+									<input type="checkbox" id="publicidadHabladores">
+									<p>Habladores</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<div class="check">
+								<label>
+									<input type="checkbox" id="publicidadStands">
+									<p>Stands</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<div class="check">
+								<label>
+									<input type="checkbox" id="publicidadCalcomanias">
+									<p>Calcomanías</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<div class="check">
+								<label>
+									<input type="checkbox" id="publicidadBanderolas">
+									<p>Banderolas o banderines</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+
+							<div id="otrosPublicidadContent" class="check">
+								<label>
+									<input type="checkbox" id="activateOtrosPublicidad">
+									<p>Otros:</p>
+									<span class="checkmark"></span>
+								</label>
+								<input type="text" id="otrosPublicidad" placeholder="Otros" >
+							</div>
+							<p class="error" id="otrosPublicidadError"></p>
+						</fieldset> -->
+
+						<fieldset class="publicidadCantidadList">
+							<legend>Tipo de Publicidad: <span class="obligatory">*</span></legend>
+							<input type="number" class="cantidad" id="publicidadVolantesNum" min="0" max="100000000" placeholder="Cantidad">
+							<label for="publicidadVolantesNum">Volantes</label><br>
+
+							<input type="number" class="cantidad" id="publicidadAfichesNum" min="0" max="100000000" placeholder="Cantidad">
+							<label for="publicidadAfichesNum">Afiches</label><br>
+
+							<input type="number" class="cantidad" id="publicidadPendonesNum" min="0" max="100000000" placeholder="Cantidad">
+							<label for="publicidadPendonesNum">Pendones</label><br>
+
+							<input type="number" class="cantidad" id="publicidadHabladoresNum" min="0" max="100000000" placeholder="Cantidad">
+							<label for="publicidadHabladoresNum">Habladores</label><br>
+
+							<input type="number" class="cantidad" id="publicidadStandsNum" min="0" max="100000000" placeholder="Cantidad">
+							<label for="publicidadStandsNum">Stands</label><br>
+
+							<input type="number" class="cantidad" id="publicidadCalcomaniasNum" min="0" max="100000000" placeholder="Cantidad">
+							<label for="publicidadCalcomaniasNum">Calcomanías</label><br>
+
+							<input type="number" class="cantidad" id="publicidadBanderolasNum" min="0" max="100000000" placeholder="Cantidad">
+							<label for="publicidadBanderolasNum">Banderolas o banderines</label><br>
+
+							<input type="number" class="cantidad" id="publicidadOtrosNum" min="0" max="100000000" placeholder="Cantidad">
+							<label for="publicidadOtrosNum">Otros:</label>
+							<div style="float: none;" class="onlyDiv">
+								<input type="text" id="publicidadOtrosText" placeholder="Otros" minlength="3" maxlength="100">
+							</div>
+							<p class="error" id="typePublicidadError"></p>
+						</fieldset>
+
+						<div class="textarea">
+							<label for="comentarios">Comentarios: <span class="obligatory">*</span></label>
+							<textarea id="comentarios" required placeholder="Comentarios" maxlength="1000" minlength="10"></textarea>
+							<p class="error" id="comentariosError"></p>
+						</div>
+
+						<div style="float: none">
+							<blockquote id="comprobanteContent">
+								<label>Comprobante: <span class="obligatory">*</span></label><br>
+								<label for="comprobante" class="file-button">
+									<div class="truncado" title="Agregar Comprobante">
+										<i class="li-icon fas fa-plus-circle"></i>
+										<span>Agregar</span>
+										<input type="file" id="comprobante">
+									</div>
+								</label>
+							</blockquote>
+							<p class="error" id="comprobanteError"></p>
+						</div>
+
+						<div class="cleaner" style="float:none"></div>
+
+						<center>
+							<button type="submit" id="processItem">Generar Permiso</button>
+						</center>
+					</form>
+				</section>

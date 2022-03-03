@@ -1,0 +1,91 @@
+		</section>
+		
+	<section id="viewSection">
+		<div class="fondo"></div>
+		<div id="newItemForm" class="visualForm">
+			<div class="contenedor">
+				<%- include(form+"/newForm") %>
+			</div>
+		</div>
+
+		<div id="viewItemForm" class="visualForm">
+			<div class="contenedor">
+				<%- include(form+"/viewForm") %>
+			</div>
+		</div>
+
+		<div id="aprobatePermiso" class="changeStatePermit allScreen centerFlex">
+			<form id="aprobatePermisoForm" method="post">
+				<button class="close" type="button">
+					<i class="li-icon fas fa-times"></i>
+				</button>
+				<center>
+					<p class="title">¡Introduzca una copia del Permiso firmado y sellado!</p>
+					<div class="inputFile">
+						<div class="centerFlex">
+							<p class="truncado"></p>
+						</div>
+						<label for="aprobateItemSelector">
+							<i class="li-icon fas fa-folder"></i>
+						</label>
+						<input type="file" id="aprobateItemSelector" class="allScreen">
+					</div>
+					<p id="aprobateItemSelectorError" class="error"></p>
+					<button id="sendAprobate" type="submit">Aprobar</button>
+				</center>
+			</form>
+		</div>
+
+		<div id="cancelPermit" class="changeStatePermit allScreen centerFlex">
+			<form id="aprobatePermisoForm" method="post">
+				<p class="title">Cancelación de Permiso</p>
+				<button class="close" type="button">
+					<i class="li-icon fas fa-times"></i>
+				</button>
+				<label for="observation-cancel">Observación: <span class="obligatory">*</span></label>
+				<textarea id="observation-cancel" placeholder="Observación" minlength="10" maxlength="250" required></textarea>
+				<p id="observation-cancelError" class="error"></p>
+				<center>
+					<button id="sendAprobate" type="submit">Confirmar</button>
+				</center>
+			</form>
+		</div>
+	</section>
+
+	<div id="errorsSection">
+		<!-- <div class="errorPeticion">
+			<center class="titleError" title='Click para "Cerrar"'>
+				Error de conexión al registrar el permiso.
+			</center>
+			<p class="truncado urlError">
+				<span class="underline"> http://100.0.0.28:8080/venta_de_bebidas/</span>
+			</p>
+			<p class="truncado">
+				<span class="underline">Estado:</span><span>  ENRECONFUSED.</span>
+			</p>
+			<p class="truncado">
+				<span class="underline">Conexión:</span><span> 404.</span>
+			</p>
+		</div> -->
+	</div>
+
+	<div id="message-section">
+		
+	</div>
+
+	<div id="charger">
+		<div class="charger charger-one">
+			<div class="charger charger-two">
+				<div class="charger-img">
+					<img src="/img/logoIco.png">
+				</div>
+			</div>
+		</div>
+	</div>
+	<noscript>
+		<p>¡Para acceder a esta aplicación web debe mantener JavaScript activado en su navegador!</p>
+		Consulte con la Dirección de Tecnología y Sistemas para que los analistas activen JavaScript en su navegador.
+	</noscript>
+
+</body>
+</html>

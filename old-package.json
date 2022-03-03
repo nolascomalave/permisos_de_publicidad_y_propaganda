@@ -1,0 +1,29 @@
+{
+  "name": "permisos_de_venta_y_publicidad",
+  "version": "1.0.0",
+  "description": "Programa para gestionar los permisos de ventas de bebidas alcohólicas, permisos de publicidad y propaganda y, permisos de otra cosa.",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/"
+  },
+  "author": "Nolasco Rafael Malavé Castro",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.6",
+    "electron-rebuild": "^2.3.5",
+    "express": "^4.17.1",
+    "express-mysql-session": "^2.1.5",
+    "express-session": "^1.17.1",
+    "html-pdf": "^2.2.0",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "phantomjs": "^2.1.7",
+    "socket.io": "^3.1.1"
+  },
+  "devDependencies": {
+    "electron": "^12.0.1",
+    "nodemon": "^2.0.7"
+  }
+}

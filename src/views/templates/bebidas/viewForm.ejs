@@ -1,0 +1,197 @@
+				<header>
+					<p>Vista - Permiso</p>
+					<button>
+						<img src="/IMG/close.png">
+					</button>
+				</header>
+				<section>
+					<nav class="centerFlex">
+						<!-- <button title="Eliminar">
+							<i class="li-icon fas fa-trash-alt"></i>
+						</button>
+						<button title="Editar">
+							<i class="li-icon fas fa-pen-square"></i>
+						</button>
+						<button title="Imprimir Permiso" id="printItem">
+							<i class="li-icon fas fa-print"></i>
+						</button>
+						<button title="Aprobar">
+							<i class="li-icon fas fa-check-square"></i>
+						</button> -->
+					</nav>
+					<div id="userGestor">
+						<p id="creador"><span>Generado por</span>: <i>Nolasco Malavé</i></p>
+						<p id="editor"><span>Última vez editado por</span>: <i></i></p>
+					</div>
+					<div class="status">
+						<!-- <div class="needDat">
+							<i class="li-icon fas fa-exclamation"></i>
+							Necesita Firma de la DAT.
+						</div>
+						<div class="emited">Emitido</div>
+						<div class="noEmited">No Emitido</div> -->
+					</div>
+					<div class="commentCancelation">
+					</div>
+					<div id="viewEdit" class="continer">
+						<div class="smallText">
+							<div>
+								<label><b>Fecha de Habilitación:</b></label>
+								<p id="infHabilitacion">26/10/2021</p>
+							</div>
+							<div>
+								<label><b>Número de Permiso:</b></label>
+								<p id="infCodigoPermiso">2021-10</p>
+							</div>
+							<div>
+								<label><b>Fecha de Vencimiento:</b></label>
+								<p id="infVencimiento">27/10/2021</p>
+							</div>
+						</div>
+						<div class="smallText">
+							<div>
+								<label><b>Requisitor:</b></label>
+								<p id="infRequisitor">Nolasco Malavé</p>
+							</div>
+							<div>
+								<label><b>C.I:</b></label>
+								<p id="infRequisitorDoc">26.916.136</p>
+							</div>
+							<div>
+								<label><b>Horario:</b></label>
+								<p id="infHorario">08:00 - 12:00</p>
+							</div>
+						</div>
+						
+
+						<div class="onlyText">
+							<label><b>Teléfono del Requisitor:</b></label>
+							<p id="infRequisitorTlf">04265821865</p>
+						</div>
+
+						<div class="longText">
+							<label><b>Dirección de Habitación:</b></label>
+							<p id="infRequisitorHabitacion"> Urbanización Brisas del Mar, Sector 5, Calle 10, Casa 5.</p>
+						</div>
+
+						<div class="longText">
+							<label><b>Sector y Área Permisada:</b></label>
+							<p id="infSector"> Sector permisado</p>
+						</div>
+
+						<!-- <div class="comprobanteButton" id="infComprobante">
+							<center>
+								<button class="centerFlex">
+									<i class="li-icon fas fa-file-pdf"></i>
+								</button>
+							</center>
+							<label><b>Comprobante de Pago</b></label>
+
+							<div class="optionsButtons floatObject">
+								<a href="" target="_blank">
+									<div><i class="li-icon fas fa-eye"></i> Ver</div>
+								</a>
+								<div class="fileSelector">
+									<label for="editerFile">
+										<p><i class="li-icon fas fa-edit"></i> Editar</p>
+									</label>
+									<input type="file" id="editerFile">
+								</div>
+							</div>
+						</div> -->
+					</div>
+					
+					<div id="editerForm" class="continer">
+						<form id="editItemForm" enctype="multipart/form-data">
+							<div class="input-date-continer">
+								<label for="editHabilitacion">Fecha de Habilitación: <span class="obligatory">*</span></label>
+								<input type="date" id="editHabilitacion" required>
+								<p class="error" id="editHabilitacionError"></p>
+							</div>
+
+							<div class="input-date-continer">
+								<label for="editVencimiento">Fecha de Vencimiento: <span class="obligatory">*</span></label>
+								<input type="date" id="editVencimiento" required>
+								<p class="error" id="editVencimientoError"></p>
+							</div>
+
+							<div>
+								<% let hours=gf.hoursDay(), horas=[]; %>
+								<label>Horario: <span class="obligatory">*</span></label>
+								<br>
+								<select id="editHorarioInicio" required>
+									<% hours.forEach((hour)=>{ %>
+										<option value="<%- hour %>"><%- hour %></option>
+										<% horas.push(hour); %>
+									<% }); %>
+								</select>
+								<span>-</span>
+								<select id="editHorarioFin" required>
+									<% horas.forEach((hora)=>{ %>
+										<option value="<%- hora %>"><%- hora %></option>
+									<% }); %>
+								</select>
+								<p class="error" id="editHorarioError"></p>
+							</div>
+
+							<div class="checkbox" id="edit-dat-firma-content">
+								<label>
+									<input type="checkbox" id="edit-dat-firma"> <p>Necesita firma de la DAT</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<span class="cleaner"></span>
+
+							<fieldset>
+								<legend>Datos del Requisitor:</legend>
+								<div>
+									<label for="editRequisitorNombre">Nombre: <span class="obligatory">*</span></label>
+									<input type="text" id="editRequisitorNombre" required placeholder="Nombre" maxlength="50" minlength="2">
+									<p class="error" id="editRequisitorNombreError"></p>
+								</div>
+								<div class="margin-left-input">
+									<label for="editRequisitorApellido">Apellido:</label>
+									<input type="text" id="editRequisitorApellido" placeholder="Apellido" maxlength="50" minlength="2">
+									<p class="error" id="editRequisitorApellidoError"></p>
+								</div>
+								<div class="margin-left-input">
+									<label for="editRequisitorDoc">C.I. o Rif: <span class="obligatory">*</span></label>
+									<input type="text" id="editRequisitorDoc" required placeholder="C.I: o Rif" maxlength="12" minlength="10">
+									<p class="error" id="editRequisitorDocError"></p>
+								</div>
+								<div>
+									<label for="editTlfRequisitor">Teléfono: <span class="obligatory">*</span></label>
+									<input type="text" id="editTlfRequisitor" required placeholder="Teléfono"  maxlength="15" minlength="11">
+									<p class="error" id="editTlfRequisitorError"></p>
+								</div>
+								<div class="textarea">
+									<label for="editHabitacionRequisitor">Dirección de Habitación: <span class="obligatory">*</span></label>
+									<textarea id="editHabitacionRequisitor" required placeholder="Dirección" maxlength="1000" minlength="5"></textarea>
+									<p class="error" id="editHabitacionRequisitorError"></p>
+								</div>
+							</fieldset>
+							<div class="textarea">
+								<label for="editSector">Sector y Área Permisada: <span class="obligatory">*</span></label>
+								<textarea id="editSector" required placeholder="Sector y Área" maxlength="1000" minlength="5"></textarea>
+								<p class="error" id="editSectorError"></p>
+							</div>
+
+							<div style="float: none">
+								<blockquote id="editComprobanteContent">
+									<label>Comprobante: <span class="obligatory">*</span></label><br>
+									<label for="editComprobante" class="file-button">
+										<div class="truncado" title="Agregar Comprobante">
+											<i class="li-icon fas fa-plus-circle"></i>
+											<span>Agregar</span>
+											<input type="file" id="editComprobante">
+										</div>
+									</label>
+								</blockquote>
+								<p class="error" id="editComprobanteError"></p>
+							</div>
+							<center>
+								<button type="submit" id="editItemButton">Confirmar</button>
+							</center>
+						</form>
+					</div>
+				</section>

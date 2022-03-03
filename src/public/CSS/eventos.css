@@ -1,0 +1,60 @@
+#modules{
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	bottom: 0%;
+	background: linear-gradient(to bottom, rgb(250,182,106), rgb(208,123,29));
+	box-shadow: 0 0 5px black;
+}#modules *{
+	color: white;
+	text-shadow: 0 0 2.5px black;
+}#modules header button{
+	width: 100%;
+	padding: 4%;
+	border: none;
+	font-size: 125%;
+	box-shadow: 0 0 2px black;
+	background: rgb(216,141,65);
+	cursor: pointer;
+}#modules header button:hover{
+	background-color: rgb(39,67,111);
+	box-shadow: 0 0 2.5px black;
+}#modules ul li{
+	list-style: none;
+	line-height: 150%;
+	padding: 4%;
+	border-bottom: 1px solid grey;
+}#modules ul li:hover{
+	background-color: rgba(39,67,111,0.75);
+	text-shadow: 0 0 2.5px black;
+}
+
+#viewSection{
+	display: none;
+}#viewSection .fondo{
+	position: fixed;
+	top: 0%;
+	right: 0%;
+	left: 0%;
+	bottom: 0%;
+}
+
+#otroEventoContent, #editOtroEventoContent{
+	display: none;
+	width: 63.333333333333333333333333%;
+	margin-left: 1%;
+}#otroEventoContent input, #editOtroEventoContent input{
+	margin-top: 0.25%;
+	padding: 1%;
+}
+
+#otrosServiceContent, #editOtrosServiceContent{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}#otrosServiceContent input[type="text"], #editOtrosServiceContent input[type="text"]{
+	display: none;
+	margin-left: 10px;
+	padding: 0.75%;
+}

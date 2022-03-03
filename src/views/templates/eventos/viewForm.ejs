@@ -1,0 +1,277 @@
+				<header>
+					<p>Vista - Permiso</p>
+					<button>
+						<img src="/IMG/close.png">
+					</button>
+				</header>
+				<section>
+					<nav class="centerFlex">
+					</nav>
+					<div id="userGestor">
+						<p id="creador"><span>Generado por</span>: <i>Nolasco Malavé</i></p>
+						<p id="editor"><span>Última vez editado por</span>: <i></i></p>
+					</div>
+					<div class="status">
+					</div>
+
+					<div class="commentCancelation">
+					</div>
+
+					<div id="viewEdit" class="continer">
+						<div class="smallText">
+							<div>
+								<label><b>Fecha de Habilitación:</b></label>
+								<p id="infHabilitacion">26/10/2021</p>
+							</div>
+							<div>
+								<label><b>Número de Permiso:</b></label>
+								<p id="infCodigoPermiso">2021-10</p>
+							</div>
+							<div>
+								<label><b>Fecha de Vencimiento:</b></label>
+								<p id="infVencimiento">27/10/2021</p>
+							</div>
+						</div>
+						<div class="smallText">
+							<div>
+								<label><b>Requisitor:</b></label>
+								<p id="infRequisitor">Nolasco Malavé</p>
+							</div>
+							<div>
+								<label><b>C.I:</b></label>
+								<p id="infRequisitorDoc">26.916.136</p>
+							</div>
+							<div>
+								<label><b>Horario:</b></label>
+								<p id="infHorario">08:00 - 12:00</p>
+							</div>
+						</div>
+						
+
+						<div class="onlyText">
+							<label><b>Teléfono del Requisitor:</b></label>
+							<p id="infRequisitorTlf">04265821865</p>
+						</div>
+
+						<div class="longText">
+							<label><b>Dirección de Habitación:</b></label>
+							<p id="infRequisitorHabitacion"> Urbanización Brisas del Mar, Sector 5, Calle 10, Casa 5.</p>
+						</div>
+
+						<div class="longText">
+							<label><b>Sector y Área Permisada:</b></label>
+							<p id="infSector"> Sector permisado</p>
+						</div>
+
+						<div class="longText">
+							<label><b>Nombre del Evento:</b></label>
+							<p id="infEvento"> Evento</p>
+						</div>
+
+						<div class="smallText">
+							<div style="width: 34%;">
+								<label><b>Tipo de Evento:</b></label>
+								<p id="infTipoEvento">Nolasco Malavé</p>
+							</div>
+						</div>
+
+						<fieldset>
+							<legend><b>Servicios Ofrecidos:</b></legend>
+							<p id="servicesComida">
+								<i class="li-icon fas fa-times"></i> Comidas
+							</p>
+							<p id="servicesBebidas">
+								<i class="li-icon fas fa-check"></i> Bebidas no alcoholizadas
+							</p>
+							<p id="servicesConfiteria">
+								<i class="li-icon fas fa-check"></i> Confitería
+							</p>
+							<p id="servicesVarios">
+								<i class="li-icon fas fa-check"></i> Artículos Varios (Salvavidas, juegos para niños, etc.)
+							</p>
+							<p id="servicesHeladeria">
+								<i class="li-icon fas fa-check"></i> Heladería
+							</p>
+							<p id="servicesOtros">
+								<i class="li-icon fas fa-check"></i> <span style="text-decoration: underline;">Otros:</span> <span class="inf">Asunto</span>
+							</p>
+						</fieldset>
+					</div>
+					
+					<div id="editerForm" class="continer">
+						<form id="editItemForm" enctype="multipart/form-data">
+							<div class="input-date-continer">
+								<label for="editHabilitacion">Fecha de Habilitación: <span class="obligatory">*</span></label>
+								<input type="date" id="editHabilitacion" required>
+								<p class="error" id="editHabilitacionError"></p>
+							</div>
+
+							<div class="input-date-continer">
+								<label for="editVencimiento">Fecha de Vencimiento: <span class="obligatory">*</span></label>
+								<input type="date" id="editVencimiento" required>
+								<p class="error" id="editVencimientoError"></p>
+							</div>
+
+							<div>
+								<% let hours=gf.hoursDay(), horas=[]; %>
+								<label>Horario: <span class="obligatory">*</span></label>
+								<br>
+								<select id="editHorarioInicio" required>
+									<% hours.forEach((hour)=>{ %>
+										<option value="<%- hour %>"><%- hour %></option>
+										<% horas.push(hour); %>
+									<% }); %>
+								</select>
+								<span>-</span>
+								<select id="editHorarioFin" required>
+									<% horas.forEach((hora)=>{ %>
+										<option value="<%- hora %>"><%- hora %></option>
+									<% }); %>
+								</select>
+								<p class="error" id="editHorarioError"></p>
+							</div>
+
+							<div class="checkbox" id="edit-dat-firma-content">
+								<label>
+									<input type="checkbox" id="edit-dat-firma"> <p>Necesita firma de la DAT</p>
+									<span class="checkmark"></span>
+								</label>
+							</div>
+							<span class="cleaner"></span>
+
+							<fieldset>
+								<legend>Datos del Requisitor:</legend>
+								<div>
+									<label for="editRequisitorNombre">Nombre: <span class="obligatory">*</span></label>
+									<input type="text" id="editRequisitorNombre" required placeholder="Nombre" maxlength="50" minlength="2">
+									<p class="error" id="editRequisitorNombreError"></p>
+								</div>
+								<div class="margin-left-input">
+									<label for="editRequisitorApellido">Apellido:</label>
+									<input type="text" id="editRequisitorApellido" placeholder="Apellido" maxlength="50" minlength="2">
+									<p class="error" id="editRequisitorApellidoError"></p>
+								</div>
+								<div class="margin-left-input">
+									<label for="editRequisitorDoc">C.I. o Rif: <span class="obligatory">*</span></label>
+									<input type="text" id="editRequisitorDoc" required placeholder="C.I: o Rif" maxlength="12" minlength="10">
+									<p class="error" id="editRequisitorDocError"></p>
+								</div>
+								<div>
+									<label for="editTlfRequisitor">Teléfono: <span class="obligatory">*</span></label>
+									<input type="text" id="editTlfRequisitor" required placeholder="Teléfono"  maxlength="15" minlength="11">
+									<p class="error" id="editTlfRequisitorError"></p>
+								</div>
+								<div class="textarea">
+									<label for="editHabitacionRequisitor">Dirección de Habitación: <span class="obligatory">*</span></label>
+									<textarea id="editHabitacionRequisitor" required placeholder="Dirección" maxlength="1000" minlength="5"></textarea>
+									<p class="error" id="editHabitacionRequisitorError"></p>
+								</div>
+							</fieldset>
+
+							<div class="textarea">
+								<label for="editSector">Sector y Área Permisada: <span class="obligatory">*</span></label>
+								<textarea id="editSector" required placeholder="Sector y Área" maxlength="1000" minlength="5"></textarea>
+								<p class="error" id="editSectorError"></p>
+							</div>
+
+							<div class="divAll">
+								<label for="editNombreEvento">Nombre del Evento: <span class="obligatory">*</span></label>
+								<input type="text" id="editNombreEvento" required placeholder="Nombre del Evento"  maxlength="76" minlength="5">
+								<p class="error" id="editNombreEventoError"></p>
+							</div>
+
+							<div>
+								<label>Tipo de Evento: <span class="obligatory">*</span></label>
+								<br>
+								<select id="editTipoEvento" required>
+									<option value="Deportivo">Deportivo</option>
+									<option value="Cultural">Cultural</option>
+									<option value="Benéfico">Benéfico</option>
+									<option value="Educativo">Educativo</option>
+									<option value="Religioso">Religioso</option>
+									<option value="Otro">Otro:</option>
+								</select>
+							</div>
+
+							<div id="editOtroEventoContent">
+								<label for="editOtroEvento" style="color: rgb(245,245,245)">hola</label>
+								<input type="text" id="editOtroEvento" placeholder="Tipo de Evento">
+								<p class="error" id="editOtroEventoError"></p>
+							</div>
+
+							<blockquote style="margin-bottom: 40%;"></blockquote>
+							<fieldset>
+								<legend>Servicios: <span class="obligatory">*</span></legend>
+								<div class="check selectAll">
+									<label>
+										<input type="checkbox" id="editSelectAllService">
+										<p>Seleccionar Todos:</p>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="check">
+									<label>
+										<input type="checkbox" id="editComidasService">
+										<p>Comidas</p>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="check">
+									<label>
+										<input type="checkbox" id="editBebidasService">
+										<p>Bebidas no Alcoholizadas</p>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="check">
+									<label>
+										<input type="checkbox" id="editConfiteriaService">
+										<p>Confitería</p>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="check">
+									<label>
+										<input type="checkbox" id="editVariosService">
+										<p>Artículos Varios (salvavidas, juegos para niños, etc.)</p>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="check">
+									<label>
+										<input type="checkbox" id="editHeladeriaService">
+										<p>Heladería</p>
+										<span class="checkmark"></span>
+									</label>
+								</div>
+
+								<div id="editOtrosServiceContent" class="check">
+									<label>
+										<input type="checkbox" id="editActivateOtrosService">
+										<p>Otros:</p>
+										<span class="checkmark"></span>
+									</label>
+									<input type="text" id="editOtrosService" placeholder="Otros Servicios" >
+								</div>
+								<p class="error" id="editOtrosServiceError"></p>
+							</fieldset>
+
+							<div style="float: none">
+								<blockquote id="editComprobanteContent">
+									<label>Comprobante: <span class="obligatory">*</span></label><br>
+									<label for="editComprobante" class="file-button">
+										<div class="truncado" title="Agregar Comprobante">
+											<i class="li-icon fas fa-plus-circle"></i>
+											<span>Agregar</span>
+											<input type="file" id="editComprobante">
+										</div>
+									</label>
+								</blockquote>
+								<p class="error" id="editComprobanteError"></p>
+							</div>
+							<center>
+								<button type="submit" id="editItemButton">Confirmar</button>
+							</center>
+						</form>
+					</div>
+				</section>

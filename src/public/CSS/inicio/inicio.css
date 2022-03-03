@@ -1,0 +1,129 @@
+.message{
+	position: fixed;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0,0,0,0.5);
+}.message div{
+	min-width: 300px;
+	max-width: 600px;
+	padding: 20px 20px 10px 20px;
+	background: rgb(250,250,250);
+	text-align: center;
+	color: rgb(80,80,80);
+	box-shadow: 0 0 5px black;
+}.message div p{
+	margin-bottom: 20px;
+	font-size: 12pt;
+}.message div button{
+	float: right;
+	padding: 2.5px;
+	border: none;
+	box-shadow: 0 0 1px 
+	margin-left: 2%;
+}.message div button{
+	padding: 1.5% 2.5% 1.5% 2.5%;
+	margin-top: 3%;
+	margin-left: 2%;
+	font-size: 95%;
+	border: none;
+	background: none;
+	color: rgb(80,80,80);
+	box-shadow: 1px 1px 5px rgb(150,150,150);
+	cursor:pointer;
+	transition: 200ms;
+}.message div button:hover{
+	color: rgb(250,250,250);
+	text-shadow: 0 0 5px black;
+	background: rgb(0,100,189);
+	box-shadow: 1.5px 1.5px 7.5px rgb(150,150,150);
+	/*border:1px solid rgba(120,170,255);*/
+}
+
+noscript{
+	position: absolute;
+	width: 100%;
+	padding: 2%;
+	text-align: center;
+	background: white;
+}noscript p{
+	font-size: 150%;
+	color: rgb(175,0,0);
+}
+
+#header{
+	position: fixed;
+	top: 0%;
+	right: 0%;
+	left: 0%;
+	background: linear-gradient(135deg, #0651a8 0%, rgb(3,37,75) 100%);
+	font-size: 12pt;
+	height: 42px;
+	min-height: 42px;
+	max-height: 42px;
+	box-shadow: 0 0 5px grey;
+}#header .nav-link{
+	color: white;
+}#header .active{
+	color: #0651a8;
+}#header .nav-item:hover a, #header .nav-item:focus a, #header .dropdown li, .dropdown ul a{
+	color: #0651a8;
+}.dropdown:hover a, .dropdown-toggle:hover, .backg-white:hover a{
+	background: white;
+}.dropdown:hover a, .dropdown-toggle:hover *, .backg-white:hover a{
+	color: #0651a8;
+}.dropdown ul a:hover{
+	background: rgba(6,81,168,0.25);
+}
+
+#body{
+	position: fixed;
+	top: 42px;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	overflow-y: auto;
+}
+
+.card{
+	margin: 7.5px;
+	box-shadow: 2.5px 5px 10px rgb(210,210,210);
+	cursor: pointer;
+}.card .contenedor{
+	width: 100%;
+	height: 100%;
+}.card .contenedor *{
+	text-decoration: none;
+}.card .col-md-8{
+	color: rgb(120,120,120);
+}.card .col-md-4{
+	display: grid;
+	place-items:center;
+	background: linear-gradient(135deg, rgba(6,81,168,0.5) 0%, rgba(3,37,75,0.5) 100%);
+	/*color: rgb(6,81,168);*/
+	color: white;
+	text-shadow: 0 0 5px black;
+	font-size: 40pt;
+	/*text-shadow: 1px 0px 0px white,
+	1px 1px 0px white,
+	0px 1px 0px white,
+	-1px 0px 0px white,
+	-1px -1px 0px white,
+	0px -1px 0px white,
+	-1px -1px 0px white,
+	-1px 1px 0px white,
+	1px -1px 0px white,
+	2px 0px 0px white,
+	2px 2px 0px white,
+	0px 2px 0px white,
+	-2px 0px 0px white,
+	-2px -2px 0px white,
+	0px -2px 0px white,
+	-2px -2px 0px white,
+	-2px 2px 0px white,
+	2px -2px 0px white;*/
+}

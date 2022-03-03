@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="http://{{ host }}/CSS/permisos/eventos.css">
+</head>
+<body>
+	<header id="globalHeader">
+		<img src="http://{{ host }}/IMG/pdfHeader3.png">
+	</header>
+
+	<section id="section">
+		<header>
+			PERMISO PROVISIONAL DE EVENTOS ESPECIALES
+		</header>
+		<section id="bodySection">
+			<div class="outTitle">
+				<p><b>F. DE ELABORACIÓN DEL PERMISO</b></p>
+				<div>
+					<p>h</p>
+					<span>{{ habilitacion }}</span>
+				</div>
+			</div>
+			<div class="insideTitle">
+				<p>d<br>d</p>
+				<div>
+					<p><b>NÚMERO DE PERMISO:</b></p>
+					<span>{{ codigo }}</span>
+				</div>
+			</div>
+			<div class="outTitle">
+				<p><b>F. DE VENCIMIENTO DEL PERMISO</b></p>
+				<div>
+					<p>h</p>
+					<span>{{ vencimiento }}</span>
+				</div>
+			</div>
+			<div class="clear"></div>
+
+			<section>
+				<div class="cm8">
+					<p><b>NOMBRE Y APELLIDO:</b></p>
+					<span>{{ requisitor }}</span>
+				</div>
+				<div class="cm4">
+					<p><b>C.I. O RIF:</b></p>
+					<span>{{ ci }}</span>
+				</div>
+				<div class="cm4">
+					<p><b>HORARIO:</b></p>
+					<span>{{ horario }}</span>
+				</div>
+				<div class="clear"></div>
+
+				<div class="all">
+					<p><b>DIRECCIÓN DE HABITACIÓN Y TELÉFONO:</b></p>
+					<span>{{ hab_telf }}</span>
+				</div>
+				<div class="all">
+					<p><b>SECTOR Y ÁREA PERMISADA:</b></p>
+					<span>{{ area_permisada }}</span>
+				</div>
+
+
+				<div class="inf">
+					<b>ESTE PERMISO SE OTORGA PARA REALIZAR EVENTOS ESPECIFICADOS POR EL MISMO EN EL MUNICIPIO TURÍSTICO EL MORRO "LICENCIADO DIEGO BAUTISTA URBANEJA" A PARTIR DE LA FECHA DE EXPEDICIÓN AUTORIZADA HASTA SU VENCIMIENTO, SIENDO MOTIVO SUFICIENTE PARA LA CANCELACIÓN DEL PERMISO EL INCUMPLIMIENTO DE LAS CONDICIONES SEÑALADAS A CONTINUACIÓN:</b>
+				</div>
+
+				<div class="inf">
+					<p><b>1.</b> Este permiso autoriza el expendio de bebidas alcohólicas.</p>
+					<p><b>2.</b> Será necesario mantener limpio el espacio permisado antes y después de la actividad.</p>
+					<p><b>3.</b> Colocar recipientes resistentes para la basura.</p>
+					<p><b>4.</b> Este permiso es de funcionamiento intransferible.</p>
+					<p><b>5.</b> La violación de la fecha de vencimiento acarrea sanción y podría tener como pena máxima la imposibilidad de renovar el permiso por un lapso de 10 años.</p>
+					<p><b>6.</b> El incumplimiento de alguna de las cláusulas establecidas en este permiso acarrea sanciones tributarias o multas de hasta 3 sueldos mínimos actuales y la suspensión inmediata del permiso.</p>
+					<p><b>7.</b> El evento debe ser notificado a la policía municipal.</p>
+					<p><b>8.</b> El nivel de sonido no debe sobrepasar 60 decb. Según lo establecido en la ordenanza (art. 8) de contaminación sónica. (dec. 2217) presidencia de la república.</p>
+				</div>
+
+			</section>
+		</section>
+	</section>
+	<footer id="globalFooter">
+		<img src="http://{{ host }}/IMG/pie.png">
+	</footer>
+
+	<header id="secondHeader">
+		<img src="http://{{ host }}/IMG/secondHeader.png">
+	</header>
+
+	<div style="padding: 0 2.6cm 0 2.6cm;">
+		<div class="all">
+			<p><b>NOMBRE DEL EVENTO:</b></p>
+			<span>{{ nombreEvento }}</span>
+		</div>
+	</div>
+
+	<section id="secondSection">
+		<p style="font-size: 11.85pt;"><b>DESCRIPCIÓN DEL EVENTO O SERVICIO</b></p>
+
+		<b>
+			<div id="table2">
+				<div class="row">
+					<div class="long-text">
+						TIPO DE EVENTO
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ deportivo }}
+					</div>
+					<div class="text">
+						Deportivo
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ cultural }}
+					</div>
+					<div class="text">
+						Cultural
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ benefico }}
+					</div>
+					<div class="text">
+						Benéfico
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ educativo }}
+					</div>
+					<div class="text">
+						Educativo
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ religioso }}
+					</div>
+					<div class="text">
+						Religioso
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ otroTipoRow }}
+					</div>
+					<div class="text">
+						Otro: {{ otroTipo }}
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="long-text">
+						SERVICIOS
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ comidas }}
+					</div>
+					<div class="text">
+						Comidas
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ bebidas }}
+					</div>
+					<div class="text">
+						Bebidas no alcoholizadas
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ confiteria }}
+					</div>
+					<div class="text">
+						Confitería
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ articulos }}
+					</div>
+					<div class="text">
+						Artículos varios (Salvavidad, juegos para niños, etc)
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ heladeria }}
+					</div>
+					<div class="text">
+						Heladería
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="row">
+					<div class="select">
+						{{ otrosServiciosRow }}
+					</div>
+					<div class="text">
+						Otros: {{ otrosServicios }}
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</b>
+
+		<div class="autorizationSection">
+			<p><b>LAS ACTIVIDADES PERMISADAS SE DEBEN REALIZAR ESTRICTAMENTE EN LOS ESPACIOS INDICADOS</b></p>
+		</div>
+
+		<div class="autorizationSection" id="finalMessage">
+			<b>
+				<p class="important"><b>NOTA IMPORTANTE</b></p>
+				<p class="block">
+					<b>
+						Se agradece a todos los organismos públicos y compententes que presten toda la colaboración posible para que se respeten los lapsos de vencimiento establecidos en este permiso.
+					</b>
+				</p>
+				
+				<p class="block">
+					<b>
+						La expedición de cualquier permiso fuera de la fecha estipulada en este documento, estaría violando la normativa de nuestro municipio.
+					</b>
+				</p>
+			</b>
+		</div>
+
+		<pre>
+             ____________________                                   ____________________
+         <b>Dirección de Asuntos Públicos</b>                           <b>Dirección de Administración</b>
+                                                                         <b>Tributaria</b>
+		</pre>
+		<!-- <pre id="firmaSection">
+<b>       ____________________         ____________________        ____________________      
+       Dirección de Asuntos      Dirección de Administración   Dirección de Protección
+             Públicos                    Tributaria                    Civil
+		</b></pre> -->
+	</section>
+</body>
+</html>

@@ -1,0 +1,1007 @@
+*{
+	margin: 0%;
+	padding: 0%;
+	box-sizing: border-box;
+	font-size: 100%;
+	font-family: Verdana;
+}
+
+.cleaner{
+	clear: both;
+}
+
+.truncado{
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+}
+
+.error{
+	color: rgb(210,0,0);
+	padding: 1%;
+}
+
+.obligatory{
+	color: red;
+}
+
+.resaltSearch{
+	/*text-decoration: underline;
+	background: rgba(0,0,0,0.05);
+	box-shadow: 0 0 1.5px grey;*/
+	/*text-decoration-line: underline;
+	background: rgba(243,133,33,0.5);
+	padding: 1px;*/
+	background: rgb(243,133,33);
+	color: white;
+	text-shadow: 0 0 1px grey;
+	padding: 1px;
+	text-decoration-line: underline;
+}
+
+.allScreen{
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+}
+
+.centerFlex{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.notResult{
+	width: 80%;
+	margin: auto;
+	margin-top: 25%;
+	text-align: center;
+}.notResult p{
+	font-size: 175%;
+	color: rgb(200,0,0);
+	text-decoration: underline;
+}
+
+.notFound{
+	padding: 2%;
+	text-align: center;
+	color: rgb(200,0,0);
+}.notFound p{
+	font-size: 15pt;
+}.notFound span{
+	color: rgb(200,0,0);
+}
+
+.notFound-add{
+	width: 100%;
+	padding: 2.5%;
+	border: none;
+	color: rgb(150,150,150);
+	background: none;
+	cursor: pointer;
+	transition: 250ms;
+}.notFound-add i{
+	font-size: 400%;
+}.notFound-add p{
+	font-size: 110%;
+	color: rgb(80,80,80);
+}.notFound-add:hover{
+	color: rgb(19,47,91);
+}.notFound-add:hover p{
+	color: rgb(19,47,91);
+}
+
+.inputFile{
+	position: relative;
+	cursor: pointer;
+}.inputFile input{
+	position: absolute;
+	width: 0%;
+	height: 0%;
+	opacity: 0;
+}
+
+.selectAll p{
+	padding-bottom: 1%;
+	border-bottom: 2px solid rgb(127, 179, 213);
+}
+
+a:link, a:active, a:visited{
+	text-decoration: none;
+	color: black;
+}
+
+noscript{
+	position: absolute;
+	width: 100%;
+	padding: 2%;
+	text-align: center;
+	background: white;
+}noscript p{
+	font-size: 150%;
+	color: rgb(175,0,0);
+}
+
+#charger{
+	position: fixed;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	background: rgb(250,250,250);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}#charger *{
+	border-radius: 50%;
+}#charger .charger{
+	border: 8px solid rgba(0,0,0,0);
+	border-top: 8px solid red;
+	border-style: double;
+	padding: 5px;
+}#charger img{
+	width: 100px;
+}#charger .charger-one{
+	animation-name: first;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	border-top-color: rgb(3,37,75);
+}#charger .charger-two{
+	animation-name: second;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	border-top-color: rgba(238,129,9,1);
+}#charger .charger-img{
+	width: 100px;
+	height: 100px;
+	animation-name: img;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	padding: 5px;
+}
+
+#aside{
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	bottom:0%;
+	width: 10%;
+	min-width: 100px;
+	box-shadow: 0 0 5px black;
+	background: linear-gradient(to bottom, rgb(3,37,75), rgb(19,47,91), rgb(57,61,76));
+	overflow-y: auto;
+}#aside .centerFlex{
+	position: relative;
+	padding: 4%;
+	border-top: 2px solid rgba(0,0,0,0);
+	border-bottom: 2px solid rgba(0,0,0,0);
+	text-align: center;
+	cursor: pointer;
+}#aside .centerFlex i{
+	font-size: 25pt;
+	color: white;
+	text-shadow: 0 0 5px black;
+}#aside .centerFlex p{
+	padding: 4% 1% 0% 1%;
+	font-size: 11pt;
+	color: white;
+	text-shadow: 0 0 5px black;
+}#aside .centerFlex:hover{
+	background: rgba(10,22,52,0.5);
+	border-top: 2px solid rgba(238,129,9,1);
+	border-bottom: 2px solid rgba(238,129,9,1);
+}
+
+#section-continer{
+	position: fixed;
+	top: 0%;
+	right: 0%;
+	bottom:0%;
+	width: 90%;
+	min-width: 90%;
+	overflow-y: auto;
+	/*background: no-repeat center/100% url('/IMG/giphy.gif');*/
+}#section section{
+
+}
+
+#global-links button{
+	float: right;
+}
+
+#section{
+	width: 100%;
+	margin: auto;
+}#section header{
+	position: relative;
+	padding: 0.5%;
+	font-size: 11pt;
+	color: rgb(19,47,91);
+	border-bottom: 2px solid rgb(19,47,91);
+}#section header form{
+	align-items: flex-end;
+	justify-content: flex-start;
+}#section header form .div{
+	width: 20%;
+	padding: 0% 0.5% 0% 0.5%;
+}#section select, #searcher{
+	display: block;
+	width: 100%;
+	padding: 1.5%;
+	margin-top: 0.5%;
+	border:none;
+	border: 1px solid rgb(200,200,200);
+	box-shadow: 2px 2.5px 5px rgb(210,210,210);
+	border-radius: 2.5px;
+}#section select:hover, #searcher:hover{
+	box-shadow: 2px 3px 5px rgb(210,210,210);
+	border-color: rgb(169, 204, 227);
+}#section select:focus, #searcher:focus{
+	box-shadow: 2px 4px 5px rgb(200,200,200);
+	border-color: rgb(127, 179, 213);
+}#section header form button, #section header form a div{
+	padding: 0.5%;
+	margin-right: 0.75%;
+	border: none;
+	font-size: 14pt;
+	color: white;
+	background: rgb(11,74,120);
+	box-shadow: 1px 2px 2.5px grey;
+	cursor: pointer;
+	transition: 150ms;
+}#section header form a div{
+	width: 35px;
+	height: 35px;
+}#section header form button:hover{
+	background: rgb(243,133,33);
+	box-shadow: 0 0 2.5px grey;
+	text-shadow: 0 0 2.5px black;
+}#section section{
+	width: 80%;
+	margin: auto;
+	background: white;
+	box-shadow: 2px 4px 5px rgb(200,200,200);
+}#section section header{
+	font-size: 13pt;
+}#section section header span{
+	font-size: 11pt;
+	text-decoration-line: underline;
+}#searchSection{
+	display: none;
+}#cleanerSearch{
+	display: none;
+}
+
+.item{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	width: 100%;
+	font-size: 90%;
+	color: rgba(19,47,91,0.7);
+	background: none;
+	border:none;
+	cursor: pointer;
+}.codeItem{
+	width: 15%;
+	padding: 1%;
+}.title-item{
+	width: 60%;
+	padding: 0 2% 0 2%;
+	text-align: left;
+}.data-item{
+	text-align: left;
+	padding: 1% 2% 1% 0;
+}.item:hover{
+	box-shadow: 0 0 2.5px rgb(200,200,200);
+}.aproved:hover .title-item{
+	border-left: 1px solid rgba(19,47,91,0.7);
+	border-right: 1px solid rgba(19,47,91,0.7);
+}.disaproved:hover .title-item{
+	border-left: 1px solid rgba(218,123,12,55);
+	border-right: 1px solid rgba(218,123,12,55);
+}
+
+.aproved{
+	border-left: 3.5px solid rgba(19,47,91,0.35);
+}.aproved:hover{
+	border-left: 3.5px solid rgb(19,47,91);
+}
+
+.disaproved{
+	border-left: 3.5px solid rgba(218,123,12,0.35);
+}.disaproved:hover{
+	border-left: 3.5px solid rgb(218,123,12);
+}
+
+.canceled{
+	border-left: 3.5px solid rgba(200,0,0,0.35);
+}.canceled:hover{
+	border-left: 3.5px solid rgb(200,0,0);
+}
+
+#add{
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 0 2.5px grey;
+	font-size: 150%;
+	background: rgb(15,37,73);
+	text-shadow: 0 0 5px black;
+	color: white;
+	cursor: pointer;
+	transition: 250ms;
+}#add:hover{
+	background: rgb(245,245,245);
+	text-shadow: none;
+	color: rgb(19,47,91);
+	box-shadow: 0 0 5px grey;
+}
+
+#cabecera{
+	background: linear-gradient(to right, rgb(3,37,75), rgb(19,47,91));
+	text-shadow: 0 0 1.25px black;
+}#cabecera div{
+	width: 33%;
+}#cabecera button{
+	padding: 1.5%;
+	background: none;
+	border: none;
+	font-size: 150%;
+	color: white;
+	cursor: pointer;
+}#cabecera button:hover{
+	text-shadow: 0 0 2.5px black;
+	background: rgba(0,0,0,0.2);
+}#cabecera, #title-page{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}#title-page{
+	/*justify-content: space-around;*/
+	justify-content: center;
+	font-size: 150%;
+	color: white;
+}#title-page img{
+	width: 25%;
+}
+
+.visualForm{
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	right: 0%;
+	bottom: 0%;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0,0,0,0.65);
+}.visualForm .contenedor{
+	width: 60%;
+	max-height: 95%;
+	background: rgb(245,245,245);
+	box-shadow: 0 0 10px black;
+}.visualForm header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 125%;
+	color: white;
+	text-shadow: 0 0 5px black;
+	box-shadow: 0 0 2.5px black;
+	background: rgb(19,47,91);
+}.visualForm header p{
+	padding-left: 1%;
+}.visualForm header button{
+	display: flex;
+	width: 4%;
+	padding: 0.9%;
+	border: none;
+	background: none;
+	cursor: pointer;
+	transition: 250ms;
+}.visualForm header button:hover{
+	padding: 0.75%;
+}.visualForm header button img{
+	width: 100%;
+}.visualForm section{
+	padding: 4%;
+	overflow-y: auto;
+}.visualForm section form{
+	max-height: 100%;
+	height: 100%;
+}.visualForm section form div{
+	display: inline-block;
+	width: 32.75%;
+}.visualForm section form .check{
+	width: 100%;
+}.visualForm section form .textarea{
+	width: 100%;
+}.visualForm section form input[type="date"]{
+	width: 80%;
+	text-align: center;
+}.visualForm input, .visualForm textarea, .visualForm select{
+	display: block;
+	width: 100%;
+	padding: 2%;
+	margin-top: 0.5%;
+	border:none;
+	border: 1px solid rgb(200,200,200);
+	box-shadow: 2px 2.5px 5px rgb(210,210,210);
+	border-radius: 2.5px;
+}.visualForm input:hover,
+.visualForm textarea:hover, .visualForm select:hover{
+	box-shadow: 2px 3px 5px rgb(210,210,210);
+	border-color: rgb(169, 204, 227);
+}.visualForm input:focus,
+.visualForm textarea:focus, .visualForm select:focus{
+	box-shadow: 2px 4px 5px rgb(200,200,200);
+	border-color: rgb(127, 179, 213);
+}.visualForm select{
+	display: inline-block;
+	width: 100%;
+}.visualForm .cantidad{
+	display: initial;
+	width: 20%;
+	padding: 0.75%;
+}#horarioInicio, #horarioFin, #editHorarioInicio, #editHorarioFin{
+	width: 45%;
+	font-size: 10pt;
+}.visualForm form div{
+	float: left;
+}.visualForm .divAll{
+	width: 100%;
+}.visualForm .divAll input{
+	padding: 0.69%;
+}.visualForm textarea{
+	padding: 1%;
+}.visualForm fieldset{
+	width: 100%;
+	padding: 1% 2% 2% 2%;
+	margin-bottom: 3%;
+	border-radius: 5px;
+	box-shadow: 2px 2.5px 5px rgb(210,210,210);
+}.visualForm fieldset legend{
+	padding: 2%;
+}.visualForm .error{
+	margin-bottom: 1%;
+	font-size: 90%;
+}.margin-left-input{
+	margin-left: 0.75%;
+}.visualForm section form button{
+	padding: 1% 2% 1% 2%;
+	margin: 3% 0 3% 0;
+	border: none;
+	border-radius: 2.5px;
+	background: rgb(3,37,75);
+	color: white;
+	text-shadow: 0 0 5px black;
+	box-shadow: 0 3px 5px grey;
+	cursor: pointer;
+	transition: 250ms;
+}.visualForm section form button:hover{
+	color: rgb(3,37,75);
+	box-shadow: 0 0 7.5px rgb(160,160,160);
+	background: white;
+	text-shadow: none;
+}.visualForm .file-button div{
+	position: relative;
+	float: none;
+	width: 100%;
+	padding: 3%;
+	margin-top: 0.5%;
+	text-align: center;
+	border:none;
+	border: 1px solid rgb(200,200,200);
+	box-shadow: 2px 2.5px 5px rgb(210,210,210);
+	border-radius: 2.5px;
+	cursor: pointer;
+	transition: 250ms;
+}.visualForm .file-button div:hover{
+	box-shadow: 2px 4px 5px rgb(200,200,200);
+	border-color: rgb(127, 179, 213);
+}.visualForm .file-button div input{
+	position: absolute;
+	width: 0%;
+	height: 0%;
+	top: 0%;
+	opacity: 0;
+}.checkbox {
+    display: flex;
+    position: relative;
+    padding-top: 3%;
+    margin-bottom: 15px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}.checkbox label {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}.checkbox p{
+	margin-left: 20px;
+}.checkbox input{
+	width: 13px;
+    height: 13px;
+    padding: 2%;
+    vertical-align: bottom;
+    position: relative;
+}.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 2.5px;
+    border:1px solid rgb(180, 180, 180);
+	box-shadow: 2px 2.5px 5px rgb(210,210,210);
+    cursor: pointer;
+}.checkmark:hover{
+	border-color: rgb(169, 204, 227);
+	box-shadow: 2px 3px 5px rgb(210,210,210);
+}
+/* When the checkbox is checked, add a blue background */
+.checkbox input:checked ~ .checkmark {
+    border-color: rgb(127, 179, 213);
+	box-shadow: 2px 4px 5px rgb(200,200,200);
+}.checkbox input:focus ~ .checkmark {
+    border-color: rgb(127, 179, 213);
+	box-shadow: 2px 4px 5px rgb(200,200,200);
+}.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}.checkbox input:checked ~ .checkmark:after {
+    display: inline-block;
+}.checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid rgb(127, 179, 213);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#viewItemForm .contenedor{
+	min-height: 75%;
+}#viewItemForm section{
+	padding: 0%;
+}#viewItemForm section #editerForm{
+	display: none;
+}#viewItemForm section nav{
+	border-top:2px solid rgba(238,129,9,1);
+	border-bottom:2px solid rgb(19,47,91);
+}#viewItemForm section nav button{
+	width: 100%;
+	padding: 0.25%;
+	border: none;
+	font-size: 125%;
+	color: rgb(19,47,91);
+	transition: 250ms;
+	cursor: pointer;
+}#viewItemForm section nav a{
+	width: 100%;
+}#viewItemForm section nav button:hover{
+	background: rgb(238,129,9);
+	text-shadow: 0 0 5px black;
+	color: white;
+}#backEdit{
+	display: none;
+}#viewItemForm section .status{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1% 2.5% 1% 2.5%;
+}#viewItemForm section .status div{
+	padding: 0.5%;
+	border-radius: 2.5px;
+	color: white;
+}#viewItemForm section .status .needDat, #viewItemForm section .status .noEmited{
+	color: rgb(236, 112, 99);
+	border: 2px solid rgb(236, 112, 99);
+}#viewItemForm section .status .emited{
+	color: rgb(40, 180, 99);
+	border: 2px solid rgb(40, 180, 99);
+}#viewItemForm section .commentCancelation{
+	padding: 0% 4% 2% 4%;
+	color: rgb(150,0,0);
+}#viewItemForm section .commentCancelation p{
+	padding-bottom: 0.5%;
+	border-bottom: 2px solid rgb(180,0,0);
+}#viewItemForm section .continer{
+	padding: 4%;
+	padding-top: 0%;
+	overflow-y: auto;
+}#viewItemForm #editerForm{
+	display: none;
+	padding-top: 2%;
+}#viewItemForm .smallText, #viewItemForm .onlyText, #viewItemForm .longText{
+	margin-bottom: 5%;
+}#viewItemForm .smallText{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}#viewItemForm .smallText div, #viewItemForm .onlyText, #viewItemForm .longText{
+	width: 100%;
+	padding: 1%;
+	text-align: center;
+	color: rgb(19,47,91);
+}#viewItemForm .onlyText{
+	width: 34%;
+}#viewItemForm .longText{
+	text-align: left;
+}#viewItemForm fieldset *{
+	padding-top: 0%;
+}#viewItemForm fieldset .check, #viewItemForm fieldset legend{
+	margin-bottom: 1%;
+	color: rgb(19,47,91);
+}#viewItemForm fieldset .fa-times{
+	color: rgb(200,0,0);
+}#viewItemForm fieldset .fa-check{
+	color: rgb(0,150,50);
+}#viewItemForm .comprobanteButton{
+	position: relative;
+	display: inline-block;
+	width: 34%;
+	text-align: center;
+	color: rgb(19,47,91);
+}#viewItemForm .comprobanteButton button{
+	padding: 2.5%;
+	margin-top: 1%;
+	border:none;
+	background: rgb(19,47,91);
+	border-radius: 2.5px;
+	border: 2px solid rgb(19,47,91);
+	color: white;
+	font-size: 300%;
+	cursor: pointer;
+	transition: 250ms;
+}#viewItemForm .comprobanteButton button:hover{
+	box-shadow: 0 0 5px rgb(19,47,91);
+	color: rgb(19,47,91);
+	background: rgb(245,245,245)
+}#viewItemForm .comprobanteButton label{
+	font-size: 80%;
+}#viewItemForm .comprobanteButton .optionsButtons{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 62.5%;
+	width: 100px;
+	font-size: 12pt;
+	box-shadow: 0 0 2.5px black;
+	background: rgb(245, 245, 245);
+	text-align: left;
+}#viewItemForm .comprobanteButton .optionsButtons a div, .fileSelector p{
+	font-family: Verdana;
+	font-size: 11pt;
+	color: rgb(19,47,91);
+	padding: 5%;
+}#viewItemForm .comprobanteButton .optionsButtons a div:hover, .fileSelector p:hover{
+	background: rgb(19,47,91);
+	color: white;
+	text-shadow: 0 0 2.5px black;
+}.fileSelector{
+	position: relative;
+}#viewItemForm .comprobanteButton .optionsButtons .fileSelector input{
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	opacity: 0;
+}#viewItemForm .comprobanteButton .optionsButtons .fileSelector label{
+	cursor: pointer;
+}
+
+#userGestor{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 7.5px;
+	font-size: 10.5pt;
+	border-bottom:2px solid rgba(238,129,9,1);
+	color: rgb(175,175,175);
+}#userGestor span{
+	text-decoration: underline;
+}#editor{
+	display: none;
+}
+
+.changeStatePermit{
+	position: absolute;
+	display: none;
+	background: rgba(0,0,0,0.65);
+}.changeStatePermit form{
+	position: relative;
+	padding: 20px;
+	background: rgb(245,245,245);
+	box-shadow: 0 0 5px black;
+}.changeStatePermit form .close:hover{
+	opacity: 1;
+	background: rgb(200,0,0);
+	color: white;
+	text-shadow: 0 0 2.5px black;
+	box-shadow: 0 0 5px black;
+}.changeStatePermit form .close{
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 25px;
+	height: 25px;
+	opacity: 0.5;
+	border: none;
+	border-radius: 50%;
+	font-size: 11pt;
+	color: rgb(200,0,0);
+	box-shadow: 0 0 2.5px black;
+	text-shadow: 0 0 1.5px black;
+	cursor: pointer;
+	transition: 150ms;
+}.changeStatePermit .title{
+	text-align: center;
+	font-size: 14pt;
+	color: rgb(80,80,80);
+}.changeStatePermit label{
+	font-size: 12pt;
+	color: rgb(125,125,125);
+}.changeStatePermit form .error{
+	margin-bottom: 10px;
+	font-size: 10.5pt;
+}.changeStatePermit button[type="submit"]{
+	padding: 5px;
+	background: rgb(19,47,91);
+	border:none;
+	color: white;
+	text-shadow: 0 0 2.5px black;
+	box-shadow: 0 2px 5px rgb(100,100,100);
+	cursor: pointer;
+	transition: 150ms;
+}.changeStatePermit button[type="submit"]:hover{
+	background: white;
+	color: rgb(19,47,91);
+	text-shadow: none;
+	box-shadow: 1px 2px 5px rgb(150,150,150);
+}
+
+#aprobatePermiso form{
+	max-width: 330px;
+}#aprobatePermiso .inputFile{
+	display: flex;
+	align-items: center;
+	width: 250px;
+	height: 25px;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	cursor: initial;
+}#aprobatePermiso .inputFile div{
+	width: 80%;
+	height: 100%;
+	border: 1px solid rgba(19,47,91, 0.5);
+	font-size: 10pt;
+	color: rgb(100,100,100);
+}#aprobatePermiso .inputFile div{
+	padding: 0 2% 0 2%;
+}#aprobatePermiso .inputFile input{
+	right: 0%; 
+}#aprobatePermiso .inputFile label{
+	width: 20%;
+	height: 100%;
+	color: white;
+	text-shadow: 0 0 2.5px black;
+	border: 1px solid rgba(19,47,91, 0.5);
+	background: rgb(133, 193, 233);
+	border-left: none;
+	cursor: pointer;
+}#aprobatePermiso .inputFile label:hover{
+	background: rgb( 93, 173, 226 );
+}#aprobatePermiso button[type="submit"]{
+	display: none;
+}
+
+#cancelPermit form{
+	width: 35%;
+	max-width: 400px;
+}#cancelPermit form textarea{
+	padding: 2%;
+	min-width: 100%;
+	max-width: 100%;
+	margin-bottom: 10px;
+}#cancelPermit form textarea{
+	display: block;
+	width: 100%;
+	padding: 2%;
+	margin-top: 0.5%;
+	border:none;
+	border: 1px solid rgb(200,200,200);
+	box-shadow: 2px 2.5px 5px rgb(210,210,210);
+	border-radius: 2.5px;
+}#cancelPermit form textarea:hover{
+	box-shadow: 2px 3px 5px rgb(210,210,210);
+	border-color: rgb(169, 204, 227);
+}#cancelPermit form textarea:focus{
+	box-shadow: 2px 4px 5px rgb(200,200,200);
+	border-color: rgb(127, 179, 213);
+}
+
+.check{
+	clear: both;
+    margin-bottom: 15px;
+}.check label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}.check p{
+	margin-left: 30px;
+    cursor: pointer;
+}.check input[type="checkbox"]{
+    padding: 2%;
+    vertical-align: bottom;
+    position: relative;
+}.check input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 2.5px;
+    border:1px solid rgb(180, 180, 180);
+	box-shadow: 2px 2.5px 5px rgb(210,210,210);
+    cursor: pointer;
+}.checkmark:hover{
+	border-color: rgb(169, 204, 227);
+	box-shadow: 2px 3px 5px rgb(210,210,210);
+}
+/* When the check is checked, add a blue background */
+.check input[type="checkbox"]:checked ~ .checkmark {
+    border-color: rgb(127, 179, 213);
+	box-shadow: 2px 4px 5px rgb(200,200,200);
+}.check input[type="checkbox"]:focus ~ .checkmark {
+    border-color: rgb(127, 179, 213);
+	box-shadow: 2px 4px 5px rgb(200,200,200);
+}.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}.check input[type="checkbox"]:checked ~ .checkmark:after {
+    display: inline-block;
+}.check .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid rgb(127, 179, 213);;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#errorsSection{
+	position: fixed;
+	left: 0%;
+	bottom: 0%;
+}#errorsSection .errorPeticion{
+	width: 350px;
+	margin: 0 0 10px 10px;
+	padding: 2%;
+	font-size: 10pt;
+	border-radius: 2.5px;
+	box-shadow: 0 3px 10px rgb(175,175,175);
+	background: rgb(250,250,250);
+	cursor: pointer;
+}#errorsSection .errorPeticion .titleError{
+	margin-bottom: 1%;
+	font-size: 11pt;
+	text-decoration: underline;
+	color: rgb(200,0,0);
+}#errorsSection .errorPeticion span{
+	color: rgb(200,0,0);
+}#errorsSection .errorPeticion .underline{
+	padding-top: 2%;
+	text-decoration: underline;
+	color: black;
+}#errorsSection .errorPeticion .urlError{
+	margin-bottom: 2%;
+}
+
+.message{
+	position: fixed;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0,0,0,0.5);
+}.message div{
+	min-width: 300px;
+	max-width: 600px;
+	padding: 20px 20px 10px 20px;
+	background: rgb(250,250,250);
+	text-align: center;
+	color: rgb(80,80,80);
+	box-shadow: 0 0 5px black;
+}.message div p{
+	margin-bottom: 20px;
+	font-size: 12pt;
+}.message div button{
+	float: right;
+	padding: 2.5px;
+	border: none;
+	box-shadow: 0 0 1px 
+	margin-left: 2%;
+}.message div button{
+	padding: 1.5% 2.5% 1.5% 2.5%;
+	margin-top: 3%;
+	margin-left: 2%;
+	font-size: 95%;
+	border: none;
+	background: none;
+	color: rgb(80,80,80);
+	box-shadow: 1px 1px 5px rgb(150,150,150);
+	cursor:pointer;
+	transition: 200ms;
+}.message div button:hover{
+	color: rgb(250,250,250);
+	text-shadow: 0 0 5px black;
+	background: rgb(0,100,189);
+	box-shadow: 1.5px 1.5px 7.5px rgb(150,150,150);
+	/*border:1px solid rgba(120,170,255);*/
+}
+
+@keyframes first {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes second {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+@keyframes img {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+body{
+	background: rgb(245,245,245);
+}

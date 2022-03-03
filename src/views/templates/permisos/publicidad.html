@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="http://{{ host }}/CSS/permisos/publicidad.css">
+</head>
+<body>
+	<header id="globalHeader">
+		<img src="http://{{ host }}/IMG/pdfHeader3.png">
+	</header>
+
+	<section id="section">
+		<header>
+			PERMISO PARA PUBLICIDAD Y/O PROPAGANDA
+		</header>
+
+		<section id="bodySection">
+			<div class="outTitle">
+				<p><b>F. DE ELABORACIÓN DEL PERMISO</b></p>
+				<div>
+					<p>h</p>
+					<span>{{ habilitacion }}</span>
+				</div>
+			</div>
+			<div class="insideTitle">
+				<p>d<br>h</p>
+				<div>
+					<p><b>NÚMERO DE PERMISO:</b></p>
+					<span>{{ codigo }}</span>
+				</div>
+			</div>
+			<div class="outTitle">
+				<p><b>F. DE VENCIMIENTO DEL PERMISO</b></p>
+				<div>
+					<p>h</p>
+					<span>{{ vencimiento }}</span>
+				</div>
+			</div>
+			<div class="clear"></div>
+
+			<section class="section">
+				<div class="cm8">
+					<p><b>NOMBRE Y APELLIDO:</b></p>
+					<span>{{ requisitor }}</span>
+				</div>
+				<div class="cm4">
+					<p><b>C.I. O RIF:</b></p>
+					<span>{{ ci }}</span>
+				</div>
+				<div class="cm4">
+					<p><b>HORARIO:</b></p>
+					<span>{{ horario }}</span>
+				</div>
+
+				<div class="clear"></div>
+
+				<div class="all">
+					<p><b>DIRECCIÓN DE HABITACIÓN Y TELÉFONO:</b></p>
+					<span>{{ hab_telf }}</span>
+				</div>
+				<div class="all">
+					<p><b>SECTOR Y ÁREA PERMISADA:</b></p>
+					<span>{{ area_permisada }}</span>
+				</div>
+			</section>
+		</section>
+
+		<section id="secondSection">
+			<p class="titleSection"><b>DESCRIPCIÓN DE LA PUBLICIDAD</b></p>
+			<div id="table">
+				<div class="small-row"><b>{{ volantes }}</b></div>
+				<div class="long-row"><b>Volantes</b></div>
+				<div class="small-row"><b>{{ afiches }}</b></div>
+				<div class="long-row"><b>Afiches</b></div>
+				<div class="small-row"><b>{{ pendones }}</b></div>
+				<div class="long-row"><b>Pendones</b></div>
+				<div class="small-row"><b>{{ habladores }}</b></div>
+				<div class="long-row"><b>Habladores</b></div>
+				<div class="small-row"><b>{{ stands }}</b></div>
+				<div class="long-row"><b>Stands</b></div>
+				<div class="small-row"><b>{{ calcomania }}</b></div>
+				<div class="long-row"><b>Calcomanías</b></div>
+				<div class="small-row"><b>{{ banderola }}</b></div>
+				<div class="long-row"><b>Banderolas o Banderines</b></div>
+				<div class="small-row"><b>{{ otrosTipoRow }}</b></div>
+				<div class="long-row"><b>Otro: {{ otroTipo }}</b></div>
+			</div>
+			<div class="clear"></div>
+
+			<div class="autorizationSection">
+				<b>
+					<p class="important"><b>OBSERVACIONES</b></p>
+				</b>
+				<p class="block">
+					{{ comentarios }}
+				</p>
+			</div>
+
+		<pre>
+             ____________________                                  ____________________
+         <b>Dirección de Asuntos Públicos</b>                          <b>Dirección de Administración</b>
+                                                                        <b>Tributaria</b>
+		</pre>
+		</section>
+	</section>
+
+	<footer id="globalFooter">
+		<img src="http://{{ host }}/IMG/pie.png" style="width: 100%;">
+	</footer>
+</body>
+</html>
