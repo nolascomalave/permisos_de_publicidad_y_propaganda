@@ -44,7 +44,7 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false
 }));
-app.use(require('./middlewares/createSession.js'));
+//app.use(require('./middlewares/createSession.js'));
 
 
 
@@ -221,4 +221,16 @@ io.on('connection', (socket)=>{
 
 	// Cancelación de Permiso:
 		socketEdit('publicidad:cancel-permiso', 'permisos_publicidad');
+
+	socket.on('bebidas:delete', (data)=>{
+		io.sockets.emit('bebidas:delete', data);
+	});
+
+	socket.on('publicidad:delete', (data)=>{
+		io.sockets.emit('publicidad:delete', data);
+	});
+
+	socket.on('eventos:delete', (data)=>{
+		io.sockets.emit('eventos:delete', data);
+	});
 });

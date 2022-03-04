@@ -1,3 +1,43 @@
+async function deleteItem(id){
+	let body=new FormData(), aborter=new AbortController();
+	setTimeout(()=>aborter.abort(), 30000);
+	$('#charger').show().css('background', 'rgba(250,250,250,0.75)');
+	body.append('id', id);
+
+	try{
+		let response=await fetch('/publicidad_y_propaganda/', {method:'DELETE', body, signal:aborter.signal});
+
+		switch(response.status){
+			case 401:
+				window.location(window.location.origin);
+				break;
+			case 403:
+				confirm('¡Usted no tiene los permisos necesarios para realizar ésta operación!', null, true);
+				break;
+			case 404:
+				confirm('¡Permiso no encontrado!', null, true);
+				break;
+			case 409:
+				let res=await response.json();
+				confirm(res.message, null, true);
+				break;
+			case 200:
+				$('#viewItemForm header button').click();
+				socket.emit('publicidad:delete', id);
+				confirm('El permiso ha sido eliminado exitosamente!', ()=>window.location.reload(), true);
+				break;
+			default:
+				confirm('¡Ha ocurrido un error en la base de datos al intentar eliminar el permiso!', null, true);
+				break;
+		}
+	}catch(e){
+		if(aborter.signal.aborted)
+		confirm(aborter.signal.aborted ? '¡El tiempo de espera de la petición ha sido excedido!' :'¡Ha ocurrido un error en la base de datos al intentar eliminar el permiso!', null, true);
+	}
+
+	$('#charger').hide().css('background', 'none');
+}
+
 function displayInputVal(number, input, label){
 	if(number.val().trim().length>0 && number.val()>0){
 		label.html('Otros: <span class="obligatory">*</span>');
@@ -78,7 +118,20 @@ function getItemFunction(response){
 				$('#aprobatePermiso').fadeIn(250).css('display', 'flex');
 				$('#aprobateItemSelector')[0].focus();
 			});
+
+			if(response.usuario.tipo_usuario=="Desarrollador" || response.usuario.tipo_usuario=="Administrador"){
+				$('#aprobateItem').after(`
+					<button title="Eliminar" id="deleteItem">
+						<i class="li-icon fas fa-trash"></i>
+					</button>
+				`);
+
+				$('#deleteItem').click(()=>{
+					let accept=confirm('¿Está segur@ de querer eliminar el permiso "'+response.result.codigo_permiso+'"?', ()=>deleteItem(response.result.id), false);
+				});
+			}
 		}
+
 		$('#viewItemForm section nav').append(`
 			<button title="Regresar" id="backEdit">
 				<i class="li-icon fas fa-arrow-left"></i>
@@ -527,6 +580,7 @@ $(document).ready(()=>{
 
 					$('#viewSection, #newItemForm').fadeOut();
 					confirm('¡Se ha registrado correctamente el permiso!', null, true);
+					$('#itemForm').reset();
 				}
 				$('#charger').hide();
 			}).catch(()=>{
@@ -770,6 +824,7 @@ $(document).ready(()=>{
 					});
 					console.log(response);
 					confirm('¡Se ha editado correctamente el permiso!', null, true);
+					$('#editItemForm').reset();
 				}
 				$('#charger').hide();
 			}).catch(()=>{
@@ -900,5 +955,9 @@ function actualizeItem(data, callback){
 			$('#item'+data.permiso.id).removeClass('aproved');
 			$('#item'+data.permiso.id).addClass('canceled');
 		});
+	});
+
+	socket.on('publicidad:delete', function(data){
+		$('#item'+data).remove();
 	});
 });

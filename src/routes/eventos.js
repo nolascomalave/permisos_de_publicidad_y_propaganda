@@ -9,6 +9,10 @@ pdf=require('html-pdf');
 // Funciones Usadas:
 const gf=require('../globalFunctions');
 
+// Middlewares:
+const verifySession=require('../middlewares/verifySession');
+const verifyRoles=require('../middlewares/verifyRoles');
+
 function converToBooleanService(service){
 	let result=0;
 	if(service==true || service=='true'){
@@ -498,6 +502,35 @@ router.post('/cancel', upload.none(), async (req, res)=>{
 		});
 	}else{
 		res.redirect('http://'+req.headers.host);
+	}
+});
+
+router.delete('/', verifySession, verifyRoles('Administrador', 'Desarrollador'), upload.none(), async (req, res)=>{
+	let pool=require('../database.js');
+
+	try{
+		let permisoToDelete=await pool.query('SELECT comprobante_de_pago, id, codigo_permiso, emitido FROM permisos_eventos WHERE id=?', [req.body.id]);
+		permisoToDelete=permisoToDelete[0] || null;
+		if(!permisoToDelete) return res.status(404).json({message:'¡Permiso no encontrado!'});
+		if(!permisoToDelete.emitido===false) return res.status(409).json({message:'El permiso no puede ser eliminado una vez ha sido aprobado!'});
+
+		let {comprobante_de_pago, id:deletedId}=permisoToDelete, year=permisoToDelete.codigo_permiso.replace(/\-\d+/, '');
+		let permisos=await pool.query('SELECT emitido, cancelado, id, codigo_permiso FROM permisos_eventos WHERE codigo_permiso LIKE ?', [year+'-%']);
+
+		let existAprobated=permisos.some(el=> el.emitido===1 ? el.id>deletedId ? true : false : false);
+		if(existAprobated===true) return res.status(409).json({message:'¡El permiso no puede ser eliminado debido a que existen permisos que han sido aprobados después de haberse creado éste permiso!'});
+
+		gf.deleteFile(path.join(__dirname, '../public/server-files/asuntos_publicos/eventos/'+comprobante_de_pago));
+		permisoToDelete=await pool.query('DELETE FROM permisos_eventos WHERE id=?', [req.body.id]);
+		await permisos.forEach(async permiso=>{
+			if(permiso.id>deletedId){
+				let code=year+'-'+gf.adaptNum((Number(permiso.codigo_permiso.replace(/\d+\-/, ''))-1));
+				await pool.query('UPDATE permisos_eventos SET codigo_permiso=? WHERE id=?', [code, permiso.id]);
+			}
+		});
+		return res.status(200).json({message:'¡El permiso ha sido eliminado!'});
+	}catch(e){
+		return res.status(500).json({message: '¡Ha ocurrido un error al realizar la operación!', error:e});
 	}
 });
 

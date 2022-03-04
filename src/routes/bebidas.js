@@ -247,7 +247,7 @@ router.post('/add', uploadProyect, async (req, res)=>{
 					}
 				}else{
 					let lastPermiso='';
-					
+
 					if('file' in req){
 						if(fs.existsSync(path.join(__dirname, "../public/server-files/temps/"+req.file.filename))){
 							let data=fs.readFileSync(path.join(__dirname, "../public/server-files/temps/"+req.file.filename));
@@ -494,32 +494,29 @@ router.delete('/', verifySession, verifyRoles('Administrador', 'Desarrollador'),
 	let pool=require('../database.js');
 
 	try{
-		res.sendStatus(200);
+		let permisoToDelete=await pool.query('SELECT comprobante_de_pago, id, codigo_permiso, emitido FROM permisos_bebidas WHERE id=?', [req.body.id]);
+		permisoToDelete=permisoToDelete[0] || null;
+		if(!permisoToDelete) return res.status(404).json({message:'¡Permiso no encontrado!'});
+		if(!permisoToDelete.emitido===false) return res.status(409).json({message:'El permiso no puede ser eliminado una vez ha sido aprobado!'});
+
+		let {comprobante_de_pago, id:deletedId}=permisoToDelete, year=permisoToDelete.codigo_permiso.replace(/\-\d+/, '');
+		let permisos=await pool.query('SELECT emitido, cancelado, id, codigo_permiso FROM permisos_bebidas WHERE codigo_permiso LIKE ?', [year+'-%']);
+
+		let existAprobated=permisos.some(el=> el.emitido===1 ? el.id>deletedId ? true : false : false);
+		if(existAprobated===true) return res.status(409).json({message:'¡El permiso no puede ser eliminado debido a que existen permisos que han sido aprobados después de haberse creado éste permiso!'});
+
+		gf.deleteFile(path.join(__dirname, '../public/server-files/asuntos_publicos/bebidas/'+comprobante_de_pago));
+		permisoToDelete=await pool.query('DELETE FROM permisos_bebidas WHERE id=?', [req.body.id]);
+		await permisos.forEach(async permiso=>{
+			if(permiso.id>deletedId){
+				let code=year+'-'+gf.adaptNum((Number(permiso.codigo_permiso.replace(/\d+\-/, ''))-1));
+				await pool.query('UPDATE permisos_bebidas SET codigo_permiso=? WHERE id=?', [code, permiso.id]);
+			}
+		});
+		return res.status(200).json({message:'¡El permiso ha sido eliminado!'});
 	}catch(e){
-
+		return res.status(500).json({message: '¡Ha ocurrido un error al realizar la operación!', error:e});
 	}
-	/* if('usuario' in req.session){
-		let pool=require('../database.js');
-		
-		await pool.query('UPDATE permisos_bebidas SET cancelado=?, observacion=? WHERE id=?', [1, req.body.observacion, req.body.permiso], (err, result, fields)=>{
-			if(err){
-				res.send(err);
-			}else{
-				res.send({
-					success: '¡Se ha cancelado la emisión del permiso correctamente!',
-					permiso: req.body.permiso
-				});
-			}
-		});
-
-		pool.end((err)=>{
-			if(err){
-				console.log(err);
-			}
-		});
-	}else{
-		res.redirect('http://'+req.headers.host);
-	} */
 });
 
 router.get('/permiso/:permiso', (req,res,next)=>{

@@ -1,10 +1,11 @@
 async function deleteItem(id){
-	let body=new FormData();
+	let body=new FormData(), aborter=new AbortController();
+	setTimeout(()=>aborter.abort(), 30000);
 	$('#charger').show().css('background', 'rgba(250,250,250,0.75)');
 	body.append('id', id);
 
 	try{
-		let response=await fetch('/venta_de_bebidas/', {method:'DELETE', body});
+		let response=await fetch('/venta_de_bebidas/', {method:'DELETE', body, signal:aborter.signal});
 
 		switch(response.status){
 			case 401:
@@ -16,16 +17,22 @@ async function deleteItem(id){
 			case 404:
 				confirm('¡Permiso no encontrado!', null, true);
 				break;
+			case 409:
+				let res=await response.json();
+				confirm(res.message, null, true);
+				break;
 			case 200:
 				$('#viewItemForm header button').click();
-				confirm('El permiso ha sido eliminado exitosamente!', null, true);
+				socket.emit('bebidas:delete', id);
+				confirm('El permiso ha sido eliminado exitosamente!', ()=>window.location.reload(), true);
 				break;
 			default:
 				confirm('¡Ha ocurrido un error en la base de datos al intentar eliminar el permiso!', null, true);
 				break;
 		}
 	}catch(e){
-		confirm('¡Ha ocurrido un error en la base de datos al intentar eliminar el permiso!', null, true);
+		if(aborter.signal.aborted)
+		confirm(aborter.signal.aborted ? '¡El tiempo de espera de la petición ha sido excedido!' :'¡Ha ocurrido un error en la base de datos al intentar eliminar el permiso!', null, true);
 	}
 
 	$('#charger').hide().css('background', 'none');
@@ -392,6 +399,7 @@ $(document).ready(()=>{
 					});
 					$('#viewSection, #newItemForm').fadeOut();
 					confirm('¡Se ha registrado correctamente el permiso!', null, true);
+					$('#itemForm').reset();
 				}
 				$('#charger').hide();
 			}).catch(()=>{
@@ -579,10 +587,10 @@ $(document).ready(()=>{
 						socket:socketReceptor
 					});
 					confirm('¡Se ha editado correctamente el permiso!', null, true);
+					$('#editItemForm').reset();
 				}
 				$('#charger').hide();
 			}).catch(()=>{
-				console.log('Hola');
 				$('#charger').hide();
 			});
 
@@ -753,5 +761,9 @@ function actualizeItem(data, callback){
 			$('#item'+data.permiso.id).removeClass('aproved');
 			$('#item'+data.permiso.id).addClass('canceled');
 		});
+	});
+
+	socket.on('bebidas:delete', function(data){
+		$('#item'+data).remove();
 	});
 });
